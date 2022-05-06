@@ -1,0 +1,70 @@
+.student-opinion {
+    margin: 40px 0;
+    position: relative;
+
+    @include mobile {
+        margin: 20px 0;
+    }
+
+    &-top {
+        @include flex(flex-end, space-between);
+
+        @include mobile {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &-sub-title {
+        margin-right: auto;
+
+        @include mobile {
+            margin-right: 0;
+        }
+    }
+
+    &__flag {
+        position: absolute;
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: -2;
+
+        &_one {
+            top: 4%;
+            right: 5%;
+            width: 100px;
+            height: 100px;
+
+            @include mobile {
+                width: 80px;
+                height: 80px;
+                top: 2%;
+            }
+        }
+
+        &_two {
+            bottom: 25%;
+            left: 5%;
+            width: 110px;
+            height: 110px;
+
+            @include mobile {
+                bottom: 10%;
+            }
+        }
+
+        &_three {
+            bottom: 8%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

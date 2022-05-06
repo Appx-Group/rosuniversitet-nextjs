@@ -1,0 +1,29 @@
+{
+  "name": "ros-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.26.1",
+    "framer-motion": "^6.3.2",
+    "next": "12.1.5",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-hot-toast": "^2.2.0",
+    "react-redux": "^8.0.1",
+    "react-scroll-to-top": "^1.0.8",
+    "react-vertical-timeline-component": "^3.5.2",
+    "sass": "^1.50.1",
+    "swiper": "^8.1.4"
+  },
+  "devDependencies": {
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5"
+  }
+}

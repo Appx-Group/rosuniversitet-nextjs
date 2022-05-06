@@ -1,0 +1,64 @@
+.pattern-three {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 5%;
+    left: 5%;
+    z-index: -1;
+
+    &__top {
+        position: relative;
+        display: flex;
+    }
+
+    @include mobile {
+        top: 40%;
+        display: none;
+    }
+
+    &__img {
+        width: 85px;
+
+        @include mobile {
+            width: 40px;
+        }
+    }
+
+    &_right {
+        animation-name: patternChange;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    &_up {
+        animation-name: patternChangeUp;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+}
+
+@keyframes patternChange {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+    }
+    100% {
+        transform: translateX(30px);
+    }
+}
+
+@keyframes patternChangeUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+    }
+    100% {
+        transform: translateY(-30px);
+    }
+}

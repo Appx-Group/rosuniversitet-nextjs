@@ -1,0 +1,27 @@
+.about-center {
+    width: 100%;
+    height: auto;
+    background-color: #f7f7f7;
+    padding: 60px 0;
+    margin: 40px 0;
+
+    @include mobile {
+        padding: 40px 0;
+        margin: 20px 0;
+    }
+
+    &__title {
+        @include font(normal, 600, 24, 18, 150%);
+        letter-spacing: 1.5px;
+        color: $txtBlack;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        @include font(normal, 500, 16, 16, 150%);
+        letter-spacing: 1.5px;
+        color: $txtColor;
+        text-align: center;
+    }
+}

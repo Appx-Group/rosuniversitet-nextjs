@@ -1,0 +1,167 @@
+.our-branches {
+    left: 0;
+    width: 100%;
+    margin: 40px 0;
+    padding: 20px 0;
+
+    @include mobile {
+        margin: 20px 0;
+    }
+
+    &__row {
+        @include flex(stretch, space-between);
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 30%;
+        border-radius: $borderRadius;
+        overflow: hidden;
+        box-shadow: $shadow;
+        margin: 20px 0;
+        transition-delay: 1s;
+        cursor: pointer;
+
+        @include tablet {
+            width: 45%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &:hover {
+            .our-branches__social-item {
+                opacity: 1;
+
+                &:first-child {
+                    background-color: $sectionTitleBlueColor;
+                    .our-branches__social-item-icon {
+                        color: $white !important;
+                        fill: $white !important;
+                        stroke: $white !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        &-bg {
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    &__social {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+
+        &-item {
+            width: 50px;
+            height: 50px;
+            background-color: $white;
+            border-radius: 50%;
+            @include flex;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+
+            @include mobile {
+                opacity: 1;
+            }
+
+            &:first-child {
+                opacity: 1;
+
+                @include mobile {
+                    background-color: $sectionTitleBlueColor;
+                }
+
+                .our-branches__social-item-icon {
+                    color: $sectionTitleBlueColor !important;
+                    fill: $sectionTitleBlueColor !important;
+                    stroke: $sectionTitleBlueColor !important;
+
+                    @include mobile {
+                        color: $white !important;
+                        fill: $white !important;
+                        stroke: $white !important;
+                    }
+                }
+            }
+
+            @include mobile {
+                width: 40px;
+                height: 40px;
+            }
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: $green;
+
+                .our-branches__social-item-icon {
+                    color: $white !important;
+                    fill: $white !important;
+                    stroke: $white !important;
+                }
+            }
+
+            &-icon {
+                width: 24px !important;
+                height: 24px !important;
+                color: $sectionTitleBlueColor;
+                fill: $sectionTitleBlueColor;
+                stroke: $sectionTitleBlueColor;
+
+                @include mobile {
+                    width: 20px !important;
+                    height: 20px !important;
+                }
+            }
+        }
+    }
+
+    &__content {
+        padding: 30px 0;
+        position: relative;
+    }
+
+    &__title {
+        @include font(normal, 600, 24, 18, 120%);
+        color: $txtColor;
+        text-align: center;
+    }
+
+    &__subtitle {
+        @include font(normal, 600, 16, 14, 120%);
+        color: #667e9f;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &__pattern {
+        position: absolute;
+        width: 70px;
+        height: 5px;
+        background-color: $green;
+        border-radius: 5px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

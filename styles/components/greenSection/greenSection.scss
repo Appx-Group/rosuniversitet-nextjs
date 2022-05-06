@@ -1,0 +1,45 @@
+.section-green {
+    background-color: $green;
+    border-radius: $borderRadius;
+    padding: 30px;
+    margin: 40px 0;
+
+    @include mobile {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    &__title {
+        @include font(normal, 700, 42, 24, 120%);
+        color: $white;
+    }
+
+    &__desc {
+        margin: 10px 0 20px 0;
+        @include font(normal, 600, 18, 14, 120%);
+        font-family: $fontFamilytTwo;
+        color: $white;
+    }
+
+    &__btn {
+        display: inline-block;
+        @include font(normal, 600, 18, 14, 120%);
+        font-family: $fontFamilytTwo;
+        color: $white;
+        background-color: $sectionTitleBlueColor;
+        padding: 14px 28px;
+        border-radius: $borderRadius;
+        box-shadow: 5px 4px 13px 0px rgb(75 131 252 / 45%);
+        transition: all 0.3s ease;
+
+        @include mobile {
+            padding: 10px 20px;
+        }
+
+        &:hover {
+            background-color: $white;
+            color: $sectionTitleBlueColor;
+            box-shadow: 5px 4px 13px 0px rgba(251, 253, 255, 0.6);
+        }
+    }
+}

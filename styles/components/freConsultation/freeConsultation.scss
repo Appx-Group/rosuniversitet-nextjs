@@ -1,0 +1,133 @@
+.free-consultation {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: $white;
+    box-shadow: 11px 10px 38px 0px rgb(46 63 99 / 15%);
+    border-radius: 8px;
+    z-index: 4;
+    padding: 50px 60px;
+    margin: 40px 0;
+    @include flex(flex-start, space-between);
+
+    @media screen and (max-width: 850px) {
+        flex-direction: column;
+        height: auto;
+    }
+
+    @include mobile {
+        padding: 40px 20px;
+        margin: 20px 0;
+    }
+
+    &__left {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 850px) {
+            width: 100%;
+            align-items: center;
+        }
+    }
+
+    &__right {
+        width: 30%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: 850px) {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        position: relative;
+        width: 150px;
+        height: 150px;
+    }
+
+    &__title {
+        @include font(normal, 600, 30, 18, 160%);
+        letter-spacing: 1.1px;
+        color: $black;
+        // text-align: center;
+
+        @include mobile {
+            text-align: center;
+        }
+
+        &_blue {
+            color: $sectionTitleBlueColor;
+        }
+    }
+
+    &__desc {
+        @include font(normal, 400, 18, 16, 150%);
+        font-family: $fontFamilytTwo;
+        letter-spacing: 1.1px;
+        color: $txtColor;
+        margin-top: 10px;
+
+        @media screen and (max-width: 850px) {
+            text-align: center;
+        }
+    }
+
+    &__rotate {
+        transform: rotate(180deg);
+        writing-mode: vertical-rl;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 850px) {
+            transform: rotate(0);
+            writing-mode: horizontal-tb;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &-title {
+            display: inline-block;
+            @include font(normal, 600, 24, 18, 150%);
+            letter-spacing: 1.1px;
+            color: $txtColor;
+            letter-spacing: 1.1px;
+            color: #000;
+            margin-left: 10px;
+            text-align: center;
+
+            @media screen and (max-width: 850px) {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        &-subtitle {
+            display: inline-block;
+            @include font(normal, 600, 16, 16, 120%);
+            text-align: center;
+            letter-spacing: 1.1px;
+            color: #667e9f;
+        }
+    }
+
+    &__fig {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 7px;
+        height: 90px;
+        background-color: $mainColor;
+        border-radius: 8px;
+    }
+}

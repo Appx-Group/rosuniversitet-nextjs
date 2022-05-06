@@ -1,0 +1,199 @@
+.footer {
+    width: 100%;
+    background-color: $mainBg;
+    padding: 60px 0;
+    font-family: $fontFamilytTwo;
+
+    @include mobile {
+        padding: 40px 0;
+    }
+
+    // .footer-top
+    &-top {
+        @include flex(flex-start, space-between);
+        flex-wrap: wrap;
+    }
+
+    // .footer__item
+    &__item {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: 1024px) {
+            padding-right: 30px;
+        }
+
+        @include tablet {
+            width: 50%;
+            margin-top: 25px;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        // footer__item-info
+        &-info {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            @include flex(flex-start, unset);
+            &-icon {
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                fill: $red;
+                margin-right: 15px;
+            }
+
+            &-text {
+                // width: 85%;
+                @include font(normal, 600, 14, 14, 160%);
+                letter-spacing: 1.1px;
+                color: $txtColorLink;
+                font-family: $fontFamilytTwo;
+
+                h3 {
+                    @include font(normal, 600, 14, 14, 160%);
+                    font-family: $fontFamilytTwo;
+                    letter-spacing: 1.1px;
+                    color: $txtColorLink;
+                }
+            }
+        }
+
+        // footer__item-link
+        &-link {
+            @include font(normal, 600, 14, 14, 160%);
+            letter-spacing: 1.1px;
+            color: $txtColorLink;
+            transition: all 0.3s ease;
+            &:hover {
+                color: $red;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            &-new {
+                @include font(normal, 600, 14, 14, 150%);
+                letter-spacing: 1.5px;
+                color: $white;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    // .footer__logo
+    &__logo {
+        @include font(normal, 700, 28, 22, 120%);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: $white;
+        margin-bottom: 20px;
+    }
+
+    // .footer__desc
+    &__desc {
+        @include font(normal, 600, 14, 14, 160%);
+        letter-spacing: 1.1px;
+        color: $txtColorLink;
+        max-width: 300px;
+    }
+
+    // footer__social
+    &__social {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+
+        &-item {
+            width: 35px;
+            height: 35px;
+            @include flex;
+            background-color: #243158;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: $red;
+            }
+
+            svg {
+                width: 14px;
+                height: 14px;
+                fill: $txtColorLink;
+                color: $txtColorLink;
+            }
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    // footer__title
+    &__title {
+        @include font(normal, 600, 18, 16, 160%);
+        letter-spacing: 1.2px;
+        color: $white;
+        margin-bottom: 20px;
+
+        @include mobile {
+            margin-bottom: 10px;
+        }
+    }
+
+    // footer__line
+    &__line {
+        width: 100%;
+        border-top: 1px solid #ffffff26;
+        margin: 60px 0 20px 0;
+        height: 2px;
+    }
+
+    &-bottom {
+        @include flex(center, space-between);
+
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        //  footer-bottom__about
+        &__about {
+            @include font(normal, 600, 14, 14, 160%);
+            letter-spacing: 1.1px;
+            color: $txtColorLink;
+
+            @include tablet {
+                margin-bottom: 5px;
+            }
+        }
+
+        //  footer-bottom__text
+        &__text {
+            @include font(normal, 600, 14, 14, 160%);
+            letter-spacing: 1.1px;
+            color: $txtColorLink;
+        }
+
+        &__link {
+            position: relative;
+            @include font(normal, 600, 14, 14, 160%);
+            color: $white;
+            transition: all 0.3s ease;
+
+            &_red {
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }
+}

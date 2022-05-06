@@ -1,0 +1,119 @@
+.cooperation {
+    margin: 40px 0;
+
+    @include mobile {
+        margin: 20px 0;
+    }
+
+    &__desc {
+        @include font(normal, 600, 14, 14, 160%);
+        letter-spacing: 1.1px;
+        color: $txtColor;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__title {
+        @include tablet {
+            position: absolute;
+            top: 0 !important;
+            transform: translateY(-100%);
+        }
+    }
+}
+
+.vertical-timeline.vertical-timeline--two-columns {
+    width: 100% !important;
+    max-width: 1440px;
+    margin: 20px 0;
+}
+
+.vertical-timeline-element-content {
+    @media screen and (max-width: 1200px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.vertical-timeline-element-icon svg {
+    fill: #000;
+    width: 15px !important;
+    height: 15px !important;
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: 0;
+    margin-top: 0;
+    transform: translate(-50%, -50%) !important;
+
+    @include mobile {
+        fill: $mainColor;
+    }
+}
+
+.vertical-timeline-element-icon {
+    @include flex;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    transition: all 0.3s ease;
+
+    @include mobile {
+        top: -20px !important;
+        // transform: translateY(-100%);
+    }
+}
+
+.vertical-timeline-element-date {
+    // @include font(normal, 700, 20, 18, 120%);
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.1px;
+    color: $txtColor !important;
+    top: 50% !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    transform: translateY(-50%);
+
+    @media screen and (max-width: 1200px) {
+        position: relative;
+        top: 0 !important;
+        transform: translateY(0);
+    }
+
+    // @include tablet {
+    //     position: absolute;
+    //     top: 25px !important;
+
+    //     @include mobile {
+    //         line-height: 36px !important;
+    //         top: 0 !important;
+    //         transform: translateY(-100%);
+    //         padding-left: 10px !important;
+    //     }
+    // }
+}
+
+.vertical-timeline-element:not(:last-child) {
+    @include mobile {
+        margin-bottom: 4em !important;
+    }
+}
+
+.vertical-timeline-element {
+    &--work:hover &-icon svg {
+        fill: $mainColor;
+    }
+}
+
+.vertical-timeline-element-content {
+    padding: 30px 20px;
+
+    @include mobile {
+        margin-left: 0 !important;
+    }
+}

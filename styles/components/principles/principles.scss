@@ -1,0 +1,97 @@
+.principles {
+    margin: 40px 0;
+
+    @include mobile {
+        margin: 20px 0;
+    }
+
+    // cart about
+    .cart-wrap-principles {
+        width: 100%;
+        margin-top: 44px;
+        @include flex(stretch, space-between);
+        flex-wrap: wrap;
+
+        // media
+        @media (max-width: 1300px) {
+            justify-content: center;
+        }
+    }
+
+    .cart-about-principles {
+        width: 30%;
+        height: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: $white;
+        cursor: pointer;
+
+        &:hover .cart-about-principles__title {
+            color: $mainColor;
+        }
+
+        @media (max-width: 1300px) {
+            margin: 20px;
+        }
+
+        @include tablet {
+            width: 44%;
+            margin: 20px 3%;
+        }
+
+        @include mobile {
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        @media (min-width: 1200px) {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+
+        //  .cart-about__img
+        &__img {
+            width: 100%;
+            max-width: 240px;
+            max-height: 300px;
+            padding: 20px;
+            overflow: hidden;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        //  .cart-about__content
+        &__content {
+            width: 100%;
+            align-items: center;
+            padding: 20px 16px;
+            padding-top: 0;
+        }
+
+        // .cart-about__title
+        &__title {
+            @include font(normal, 700, 24, 16, 110%);
+            letter-spacing: 1px;
+            color: $txtBlack;
+            margin: 20px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        // .cart-about__subtitle
+        &__subtitle {
+            @include font(normal, 600, 16, 16, 160%);
+            font-family: $fontFamilytTwo;
+            letter-spacing: 1px;
+            color: $txtColor;
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}

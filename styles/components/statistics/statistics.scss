@@ -1,0 +1,76 @@
+.statistics {
+    margin: 40px 0;
+
+    @include mobile {
+        margin: 20px;
+    }
+
+    &__sircle {
+        display: flex;
+        justify-content: center;
+
+        .sircle-title {
+            display: inline-block !important;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 7px 10px;
+            margin: 0px 0px 12px 0px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 5px 4px 13px 0px rgb(46 63 99 / 15%);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+            &__box {
+                display: inline-block;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                margin-right: 5px;
+                flex-shrink: 0;
+                background-color: $red;
+            }
+        }
+    }
+
+    &__row {
+        width: 100%;
+        @include flex(center, space-between);
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    &__item {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @include tablet {
+            width: 50%;
+            margin-top: 10px;
+        }
+
+        @include mobile {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+
+    &__num {
+        @include font(normal, 700, 36, 24, 130%);
+        font-family: $fontFamilytTwo;
+        letter-spacing: 1px;
+        color: $green;
+        text-align: center;
+    }
+
+    &__title {
+        @include font(normal, 700, 16, 14, 130%);
+        letter-spacing: 1px;
+        color: $txtBlack;
+        margin-top: 10px;
+        text-align: center;
+    }
+}

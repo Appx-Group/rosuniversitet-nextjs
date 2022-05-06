@@ -1,0 +1,259 @@
+.contacts {
+    padding: 100px 0;
+
+    @include mobile {
+        padding: 80px 0 40px 0;
+    }
+
+    &-up {
+        @include flex(center, space-between);
+
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__left {
+            width: 35%;
+
+            @include tablet {
+                width: 100%;
+            }
+        }
+
+        &__right {
+            border-radius: $borderRadius;
+            width: 60%;
+            max-height: 600px;
+            overflow: hidden;
+            box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
+
+            @include tablet {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            @include mobile {
+                max-height: 400px;
+            }
+        }
+
+        &__desc {
+            @include font(normal, 600, 16, 16, 160%);
+            font-family: $fontFamilytTwo;
+            letter-spacing: 1px;
+            color: $txtColor;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        &__detail {
+            margin-top: 10px;
+            &-item {
+                padding: 15px 20px;
+                background-color: $linkSectionColor;
+                border-radius: $borderRadius;
+                @include flex(flex-start, unset);
+                transition: all 0.3s ease;
+
+                @include mobile {
+                    padding: 15px 10px;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+                &:hover {
+                    background-color: $sectionTitleBlueColor;
+
+                    .contacts-up__detail-left {
+                        background-color: $white;
+                    }
+
+                    .contacts-up__detail-title {
+                        color: $white;
+                    }
+
+                    .contacts-up__detail-desc {
+                        color: $white;
+                    }
+
+                    .contacts-up__detail-icon {
+                        fill: $green;
+                    }
+                }
+            }
+
+            &-left {
+                width: 50px;
+                height: 50px;
+                background-color: $green;
+                border-radius: 50%;
+                flex-shrink: 0;
+                @include flex;
+                margin-right: 20px;
+                transition: all 0.3s ease;
+
+                @include mobile {
+                    width: 45px;
+                    height: 45px;
+                    margin-right: 10px;
+                }
+            }
+
+            &-icon {
+                width: 30px;
+                height: 30px;
+                fill: $white;
+                transition: all 0.3s ease;
+
+                @include mobile {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            &-title {
+                @include font(normal, 600, 20, 16, 110%);
+                letter-spacing: 1px;
+                color: $txtBlack;
+                transition: all 0.3s ease;
+                margin-bottom: 10px;
+            }
+
+            &-desc {
+                @include font(normal, 600, 16, 16, 160%);
+                font-family: $fontFamilytTwo;
+                letter-spacing: 1px;
+                color: $txtColor;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &__map {
+            width: 100%;
+            height: 600px;
+        }
+    }
+
+    &-down {
+        margin-top: 60px;
+        @include flex(stretch, space-between);
+
+        @include tablet {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+
+        &__left {
+            width: 50%;
+            @include flex;
+
+            @include tablet {
+                width: 100%;
+            }
+        }
+
+        &__img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &__right {
+            width: 40%;
+
+            @include tablet {
+                width: 100%;
+            }
+        }
+
+        &__form {
+            margin-top: 30px;
+        }
+
+        &__item {
+            position: relative;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        &__input {
+            width: 100%;
+            border: 1px solid #d6d5d7;
+            padding: 14px 20px 14px 40px;
+            border-radius: 5px;
+
+            &.red {
+                border-color: $red;
+            }
+
+            &.green {
+                border-color: $green;
+            }
+
+            &:focus {
+                outline: none !important;
+                border-color: #ededed;
+                // border-color: $green;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            fill: $sectionTitleBlueColor;
+            color: $sectionTitleBlueColor;
+            font-size: 56px;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            &_textarea {
+                top: 15px;
+                transform: translateY(0);
+            }
+        }
+
+        &__btn {
+            @include font(normal, 700, 16, 14, 120%);
+            display: inline-block;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            padding: 14px 40px;
+            color: $white;
+            letter-spacing: 0;
+            background-color: $sectionTitleBlueColor;
+            text-transform: uppercase;
+            box-shadow: 5px 4px 13px 0 rgba($sectionTitleBlueColor, 0.45);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: $green;
+                box-shadow: 5px 4px 13px 0px rgba($green, 0.45);
+            }
+        }
+    }
+}
+
+input[type='text'] {
+    @include font(normal, 600, 16, 16, 120%);
+    letter-spacing: 1.3px;
+}
+input[type='number'] {
+    @include font(normal, 600, 16, 16, 120%);
+    letter-spacing: 1.3px;
+}
+input[type='email'] {
+    @include font(normal, 600, 16, 16, 120%);
+    letter-spacing: 1.3px;
+}
+
+textarea {
+    @include font(normal, 600, 16, 16, 120%);
+    letter-spacing: 1.3px;
+    min-width: 100%;
+    min-height: 120px;
+}

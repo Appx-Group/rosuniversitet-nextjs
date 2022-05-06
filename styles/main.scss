@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
+
+@import './varibles', './normmalize', './mixin';
+@import './components/global/global.scss';
+@import './components/header/header.scss', './components/header/menuMobile.scss';
+@import './components/footer/footer.scss';
+@import './components/langSelect/langSelect.scss',
+    './components/langSelect/langSelectDefault.scss';
+@import './components/banner/banner.scss';
+@import './components/flagCart/flagCart.scss',
+    './components/patternThree/patternThree.scss';
+@import './components/aboutUsHome/aboutUsHome.scss';
+@import './components/sectionTitle/sectionTitle.scss';
+@import './components/whyChoose/whyChoose.scss';
+@import './components/freConsultation/freeConsultation.scss';
+@import './components/firsStept/firstStept.scss';
+@import './components/swiperOur/swiperOur.scss';
+@import './components/aboutCenter/aboutCenter.scss';
+@import './components/studentOpinion/studentOpinion.scss';
+@import './components/effectSwiper/effectSwiper.scss';
+@import './components/reliablePartner/reliablePartner.scss';
+@import './components/statistics/statistics.scss';
+@import './components/principles/principles.scss';
+@import './components/ourBranches/ourBranches.scss';
+@import './components/modal/modal.scss';
+@import './components/greenSection/greenSection.scss';
+@import './components/cooperation/cooperation.scss';
+@import './components/russia/russia.scss';
+@import './components/learning/learning.scss';
+@import './components/qustions/questions.scss';
+@import './components/accordion/accordion.scss';
+@import './components/universites/universites.scss';
+@import './components/contacts/Contacts.scss';
+@import './components/notfound/notfound.scss';
+@import './components/branch/branch.scss';

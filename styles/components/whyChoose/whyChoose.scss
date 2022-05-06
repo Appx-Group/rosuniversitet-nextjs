@@ -1,0 +1,86 @@
+.why-choose {
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+    margin: 40px 0;
+    position: relative;
+    background-color: $mainBg;
+
+    @include mobile {
+        padding: 40px 0;
+        margin: 20px 0;
+    }
+
+    &__container {
+        width: 100%;
+        @include flex(flex-start, space-between);
+        flex-wrap: wrap;
+    }
+
+    &-cart {
+        width: 33%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        @include tablet {
+            width: 50%;
+        }
+
+        @media (max-width: 730px) {
+            width: 100%;
+        }
+
+        &:hover &__icon {
+            background-color: $red;
+        }
+
+        &__left {
+            width: 20%;
+        }
+
+        &__right {
+            width: 77%;
+            padding-left: 5px;
+        }
+
+        &__icon {
+            width: 70px;
+            height: 70px;
+            background-color: $iconBg;
+            border-radius: 50%;
+            @include flex;
+            transition: all 0.3s ease;
+
+            @include mobile {
+                width: 60px;
+                height: 60px;
+            }
+
+            svg {
+                fill: $white;
+
+                path {
+                    fill: $white;
+                }
+            }
+        }
+
+        &__title {
+            @include font(normal, 600, 22, 16, 150%);
+            font-size: $fontFamilytTwo;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: $white;
+            margin-bottom: 10px;
+        }
+
+        &__desc {
+            @include font(normal, 400, 16, 14, 160%);
+            font-size: $fontFamilytTwo;
+            letter-spacing: 1.1px;
+            color: $white;
+        }
+    }
+}

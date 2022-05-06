@@ -1,0 +1,115 @@
+.about-us-home {
+    padding: 60px 0;
+    position: relative;
+    z-index: 2;
+    @include mobile {
+        padding: 40px 0;
+    }
+}
+
+.cart-wrap {
+    width: 100%;
+    margin-top: 44px;
+    @include flex(stretch, center);
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 30px;
+
+    @media (max-width: 1300px) {
+        justify-content: center;
+    }
+}
+
+.cart-about {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: $white;
+    box-shadow: 11px 10px 38px 0px rgb(46 63 99 / 15%);
+    cursor: pointer;
+
+    &:hover .cart-about__title {
+        color: $mainColor;
+    }
+
+    @media (max-width: 1300px) {
+        margin: 20px;
+    }
+
+    @media (min-width: 1200px) {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    @include tablet {
+        width: 44%;
+        margin: 20px 3%;
+    }
+
+    @include mobile {
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    //  .cart-about__img
+    &__img {
+        position: relative;
+        width: 100%;
+        max-width: 270px;
+        // max-height: 300px;
+        padding: 20px;
+        overflow: hidden;
+        margin: 0 auto;
+        @include flex;
+
+        // @include mobile {
+        //     max-height: 200px !important;
+        // }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    //  .cart-about__content
+    &__content {
+        width: 100%;
+        align-items: center;
+        padding: 20px 16px;
+        padding-top: 0;
+    }
+
+    // .cart-about__title
+    &__title {
+        @include font(normal, 700, 24, 16, 110%);
+        letter-spacing: 1px;
+        color: $txtBlack;
+        margin: 20px 0;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    // .cart-about__subtitle
+    &__subtitle {
+        @include font(normal, 600, 16, 16, 160%);
+        font-family: $fontFamilytTwo;
+        letter-spacing: 1px;
+        color: $txtColor;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+// absolute el
+
+.offer-pattern {
+    width: 22%;
+    position: absolute;
+    right: 12%;
+    top: 19%;
+    z-index: -1;
+}

@@ -1,0 +1,124 @@
+.effect-swiper {
+    width: 100%;
+    padding: 20px 0;
+    margin: 20px 0;
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 700px !important;
+        min-height: 250px !important;
+        background-color: $white;
+
+        @media screen and (max-width: 768px) {
+            width: 100% !important;
+        }
+    }
+
+    .swiper-slide-active .swip {
+        filter: opacity(1);
+    }
+
+    .swip {
+        filter: opacity(60%);
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 5px 1px 20px rgb(0 0 0 / 11%);
+        padding: 50px;
+        height: auto;
+        position: relative;
+        @include flex(center, unset);
+        flex-direction: column;
+
+        @media screen and (max-width: 768px) {
+            padding: 25px 20px;
+            margin: 15px;
+            box-shadow: 0px 1px 20px rgb(0 0 0 / 11%);
+        }
+
+        @include mobile {
+            padding: 14px 7px;
+        }
+
+        &__title {
+            @include font(normal, 700, 22, 16, 160%);
+            font-family: $fontFamilytTwo;
+            letter-spacing: 1.2px;
+            color: $txtBlack;
+            text-align: center;
+        }
+
+        &__desc {
+            @include font(normal, 500, 18, 16, 150%);
+            font-family: $fontFamilytTwo;
+            letter-spacing: 1.2px;
+            color: $txtColor;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        &__person {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+
+            &-img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &-content {
+                margin-left: 15px;
+                h4 {
+                    @include font(normal, 700, 20, 16, 120%);
+                    font-family: $fontFamilytTwo;
+                    letter-spacing: 1.2px;
+                    color: $txtBlack;
+                }
+
+                h5 {
+                    margin-top: 5px;
+                    @include font(normal, 700, 16, 16, 120%);
+                    font-family: $fontFamilytTwo;
+                    letter-spacing: 1.2px;
+                    color: $mainColor;
+                }
+            }
+        }
+
+        &__patern {
+            position: absolute;
+            width: 90px;
+            height: 7px;
+            border-radius: 8px;
+            background-color: $red;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .swiper-3d .swiper-slide-shadow-left,
+    .swiper-3d .swiper-slide-shadow-right {
+        background-image: none;
+    }
+
+    .swiper-3d,
+    .swiper-3d.swiper-css-mode .swiper-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        min-height: 450px;
+    }
+}
+
+.swiper-3d .swiper-slide-shadow-left {
+    opacity: 0.4;
+}

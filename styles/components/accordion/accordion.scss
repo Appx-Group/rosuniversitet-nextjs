@@ -1,0 +1,94 @@
+.accordion {
+    &__element {
+        width: 100%;
+        transition: all 0.4s ease;
+        margin-bottom: 15px;
+
+        &.show .accordion__item {
+            background-color: $sectionTitleBlueColor;
+
+            .accordion__title {
+                color: $white;
+                transition: all 0.3s ease;
+            }
+
+            .accordion__svg {
+                color: $white;
+                fill: $white;
+            }
+
+            .accordion__svg_plus {
+                transform: rotate(-90deg);
+                opacity: 0;
+            }
+
+            .accordion__svg_minus {
+                transform: rotate(0);
+            }
+        }
+    }
+
+    &__item {
+        width: 100%;
+        @include flex(center, space-between);
+        padding: 12px 20px;
+        background-color: #f5f3f4;
+        border-radius: $borderRadius;
+        transition: all 0.8s ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $sectionTitleBlueColor;
+
+            .accordion__title {
+                color: $white;
+                transition: all 0.3s ease;
+            }
+
+            .accordion__svg {
+                color: $white;
+                fill: $white;
+            }
+        }
+    }
+
+    &__title {
+        @include font(normal, 500, 18, 18, 130%);
+        letter-spacing: 1.2px;
+        color: $black;
+    }
+
+    &__svg-wrap {
+        position: relative;
+        @include flex;
+        width: 24px;
+        height: 24px;
+        flex-basis: 24px;
+        flex-shrink: 0;
+    }
+
+    &__svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        fill: $sectionTitleBlueColor;
+        color: $sectionTitleBlueColor;
+        transition: all 0.8s ease;
+
+        &_minus {
+            transform: rotate(90deg);
+        }
+    }
+    &__show {
+        max-height: 0;
+        overflow-y: hidden;
+        transition: all 0.3s ease;
+    }
+
+    &__desc {
+        @include font(normal, 500, 14, 14, 150%);
+        letter-spacing: 1.2px;
+        color: $black;
+        padding: 20px;
+    }
+}
