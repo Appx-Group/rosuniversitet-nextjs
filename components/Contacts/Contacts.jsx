@@ -190,13 +190,13 @@ const Contacts = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                    <div className='contacts-up__right'>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: map,
-                            }}
-                        />
-                    </div>
+
+                    <div
+                        className='contacts-up__right'
+                        dangerouslySetInnerHTML={{
+                            __html: map,
+                        }}
+                    />
                 </div>
                 <div className='contacts-down'>
                     <div className='contacts-down__left'>

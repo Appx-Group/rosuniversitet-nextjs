@@ -21,6 +21,9 @@ import RuFlag from '../../images/flag/ru.png'
 import UzFlag from '../../images/flag/uz.png'
 import EngFlag from '../../images/flag/eng.png'
 
+// Not Images
+import NotImage from '../../images/NotImg/not-img.png'
+
 export const RussiaImg = {
     RussiaImg1,
     RussiaImg2,
@@ -45,3 +48,5 @@ export const Flags = {
     UzFlag,
     EngFlag,
 }
+
+export const notImage = NotImage

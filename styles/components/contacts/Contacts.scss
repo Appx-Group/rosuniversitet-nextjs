@@ -24,7 +24,7 @@
         &__right {
             border-radius: $borderRadius;
             width: 60%;
-            max-height: 600px;
+            height: 500px;
             overflow: hidden;
             box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
 
@@ -35,6 +35,11 @@
 
             @include mobile {
                 max-height: 400px;
+            }
+
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
             }
         }
 

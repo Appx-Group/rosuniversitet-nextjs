@@ -3,8 +3,10 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const FreeConsultation = ({ data }) => {
+    console.log(data)
     const { lang } = useSelector(selectLangSlice)
     const {
         subtitle,
@@ -15,6 +17,10 @@ const FreeConsultation = ({ data }) => {
         title_uz,
         items,
     } = data
+
+    const obj = {
+        image: 'https://site.bronme.uz/images/image-1651926994135.png',
+    }
     return (
         <div className='container'>
             <SectionTitle
@@ -72,7 +78,7 @@ const FreeConsultation = ({ data }) => {
                         <div className='free-consultation__right'>
                             <div className='free-consultation__img'>
                                 <Image
-                                    src={image}
+                                    src={image ? image : notImage}
                                     alt='free consultation img'
                                     layout='fill'
                                 />
