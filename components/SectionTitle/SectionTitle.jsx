@@ -7,7 +7,7 @@ export const SectionTitle = ({
     theme = 'white',
     position = 'center', // center or left
     textPosition = '', // left or center
-    sircleColor = 'red', // red or green
+    sircleColor = 'green', // red or green
 }) => {
     return (
         <div className={`section__content ${position}`}>
