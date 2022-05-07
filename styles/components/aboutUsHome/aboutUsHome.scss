@@ -12,11 +12,10 @@
     margin-top: 30px;
     @include flex(stretch, center);
     flex-wrap: wrap;
-    row-gap: 30px;
-    column-gap: 30px;
+    gap: 50px;
 
-    @media (max-width: 1300px) {
-        justify-content: center;
+    @include mobile {
+        gap: 30px;
     }
 }
 
@@ -25,6 +24,7 @@
     height: auto;
     border-radius: 8px;
     overflow: hidden;
+    min-height: 430px;
     background-color: $white;
     box-shadow: 11px 10px 38px 0px rgb(46 63 99 / 15%);
     cursor: pointer;
@@ -33,40 +33,22 @@
         color: $mainColor;
     }
 
-    @media (max-width: 1300px) {
-        margin: 20px;
-    }
-
-    @media (min-width: 1200px) {
-        &:not(:last-child) {
-            margin-right: 10px;
-        }
-    }
-
     @include tablet {
-        width: 44%;
-        margin: 20px 3%;
+        width: 45%;
     }
 
     @include mobile {
-        margin: 20px 0;
         width: 100%;
     }
 
-    //  .cart-about__img
     &__img {
         position: relative;
         width: 100%;
         max-width: 270px;
-        // max-height: 300px;
         padding: 20px;
         overflow: hidden;
         margin: 0 auto;
         @include flex;
-
-        // @include mobile {
-        //     max-height: 200px !important;
-        // }
 
         img {
             width: 100%;
@@ -92,7 +74,7 @@
     }
 
     &__subtitle {
-        @include font(normal, 600, 16, 16, 160%);
+        @include font(normal, 600, 18, 16, 160%);
         font-family: $fontFamilytTwo;
         letter-spacing: 1px;
         color: $txtColor;
