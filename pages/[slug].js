@@ -16,7 +16,6 @@ import ReliablePartner from '@/components/ReliablePartner/ReliablePartner'
 import Cooperation from '@/components/Cooperation/Cooperation'
 import Universities from '@/components/Universites/Universites'
 import Principles from '@/components/Principles/Principles'
-import FirstStept from '@/components/FirstStept/FirstStept'
 import Contacts from '@/components/Contacts/Contacts'
 import { domain } from 'utils/urls'
 

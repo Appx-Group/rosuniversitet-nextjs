@@ -18,7 +18,6 @@ import Universities from '@/components/Universites/Universites'
 import Banner from '@/components/Banner/Banner'
 import Principles from '@/components/Principles/Principles'
 import LangSelectDefault from '@/components/LangSelectDefault/LangSelectDefault'
-import FirstStept from '@/components/FirstStept/FirstStept'
 import { domain } from 'utils/urls'
 
 const allComponents = {

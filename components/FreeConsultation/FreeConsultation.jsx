@@ -6,7 +6,6 @@ import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const FreeConsultation = ({ data }) => {
-    console.log(data)
     const { lang } = useSelector(selectLangSlice)
     const {
         subtitle,
