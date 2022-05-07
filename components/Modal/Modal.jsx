@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { selectLangSlice } from '../../store/features/lang'
 import { useSelector } from 'react-redux'
+import { selectLangSlice } from '../../store/features/lang'
 import { InstagramSvg, TelegramSvg2, CallSvg } from 'assets/icons/Icons'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Modal = ({ open, setOpen, data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -59,7 +60,11 @@ const Modal = ({ open, setOpen, data }) => {
                         <path d='M18,18A61.45,61.45,0,1,1,0,61.44,61.28,61.28,0,0,1,18,18ZM77.38,39l6.53,6.54a4,4,0,0,1,0,5.63L73.6,61.44,83.91,71.75a4,4,0,0,1,0,5.63l-6.53,6.53a4,4,0,0,1-5.63,0L61.44,73.6,51.13,83.91a4,4,0,0,1-5.63,0L39,77.38a4,4,0,0,1,0-5.63L49.28,61.44,39,51.13a4,4,0,0,1,0-5.63L45.5,39a4,4,0,0,1,5.63,0L61.44,49.28,71.75,39a4,4,0,0,1,5.63,0ZM61.44,10.54a50.91,50.91,0,1,0,36,14.91,50.83,50.83,0,0,0-36-14.91Z' />
                     </svg>
                     <div className='modal-main__left'>
-                        <Image src={image} alt='branch' layout='fill' />
+                        <Image
+                            src={image ? image : notImage}
+                            alt='branch'
+                            layout='fill'
+                        />
                     </div>
                     <div className='modal-main__right'>
                         <h1 className='modal-main__title'>
@@ -177,18 +182,3 @@ const Modal = ({ open, setOpen, data }) => {
 }
 
 export default Modal
-
-const svgClose = (props) => (
-    <svg
-        data-name='Layer 1'
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 122.87 122.87'
-        {...props}
-        width={45}
-        height={45}
-        fill='red'
-    >
-        <title>{'remove'}</title>
-        <path d='M18 18A61.45 61.45 0 1 1 0 61.44 61.28 61.28 0 0 1 18 18Zm59.38 21 6.53 6.54a4 4 0 0 1 0 5.63L73.6 61.44l10.31 10.31a4 4 0 0 1 0 5.63l-6.53 6.53a4 4 0 0 1-5.63 0L61.44 73.6 51.13 83.91a4 4 0 0 1-5.63 0L39 77.38a4 4 0 0 1 0-5.63l10.28-10.31L39 51.13a4 4 0 0 1 0-5.63l6.5-6.5a4 4 0 0 1 5.63 0l10.31 10.28L71.75 39a4 4 0 0 1 5.63 0ZM61.44 10.54a50.91 50.91 0 1 0 36 14.91 50.83 50.83 0 0 0-36-14.91Z' />
-    </svg>
-)
