@@ -75,7 +75,6 @@
         }
     }
 
-    //  .cart-about__content
     &__content {
         width: 100%;
         align-items: center;
@@ -83,7 +82,6 @@
         padding-top: 0;
     }
 
-    // .cart-about__title
     &__title {
         @include font(normal, 700, 24, 16, 110%);
         letter-spacing: 1px;
@@ -93,7 +91,6 @@
         transition: all 0.3s ease;
     }
 
-    // .cart-about__subtitle
     &__subtitle {
         @include font(normal, 600, 16, 16, 160%);
         font-family: $fontFamilytTwo;
@@ -102,14 +99,4 @@
         margin-top: 20px;
         text-align: center;
     }
-}
-
-// absolute el
-
-.offer-pattern {
-    width: 22%;
-    position: absolute;
-    right: 12%;
-    top: 19%;
-    z-index: -1;
 }

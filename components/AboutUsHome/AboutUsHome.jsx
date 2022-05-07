@@ -6,8 +6,6 @@ import { motion } from 'framer-motion'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
-import offerPattern from '../../assets/images/home/offer.png'
-
 const cardtAnimation = {
     hidden: {
         y: -100,
@@ -110,11 +108,6 @@ const AboutUsHome = ({ data }) => {
                     )}
                 </motion.div>
             </div>
-            {/* <img
-                className='offer-pattern'
-                src={offerPattern}
-                alt='offerPattern'
-            /> */}
         </section>
     )
 }
