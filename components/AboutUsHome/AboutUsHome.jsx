@@ -74,7 +74,7 @@ const AboutUsHome = ({ data }) => {
                             index
                         ) => (
                             <motion.div
-                                key={index}
+                                key={id}
                                 custom={index + 1}
                                 variants={cardtAnimation}
                                 className='cart-about'
