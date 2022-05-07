@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectLangSlice } from '../../store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import Modal from '../Modal/Modal'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Branch = ({ data }) => {
     const {
@@ -61,7 +62,7 @@ const Branch = ({ data }) => {
                                 </div>
                                 <Image
                                     className='branches__img-bg'
-                                    src={item.image}
+                                    src={item?.image ? item?.image : notImage}
                                     alt='branches'
                                     layout='fill'
                                 />
