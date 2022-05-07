@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 import offerPattern from '../../assets/images/home/offer.png'
 
@@ -82,7 +83,7 @@ const AboutUsHome = ({ data }) => {
                             >
                                 <div className='cart-about__img'>
                                     <Image
-                                        src={image}
+                                        src={image ? image : notImage}
                                         alt='about cart img'
                                         width={200}
                                         height={180}

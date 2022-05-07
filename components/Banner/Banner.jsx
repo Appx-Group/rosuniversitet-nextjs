@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { motion } from 'framer-motion'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 import PatternThree from '../PattertThree/PatternThree'
 
 import bgPattern from '../../assets/images/home/banner-pattern.png'
@@ -73,7 +74,7 @@ const Banner = ({ data }) => {
                     <div className='banner__bg'>
                         <Image
                             className='banner__bg'
-                            src={image}
+                            src={image ? image : notImage}
                             alt='bg banner'
                             layout='fill'
                         />
