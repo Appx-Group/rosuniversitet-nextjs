@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { selectLangSlice } from 'store/features/lang'
 import { Toaster, toast } from 'react-hot-toast'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 import {
     UserSvg,
@@ -202,7 +203,7 @@ const Contacts = ({ data }) => {
                     <div className='contacts-down__left'>
                         <Image
                             className='contacts-down__img'
-                            src={image}
+                            src={image ? image : notImage}
                             alt='cotacts img'
                             width={550}
                             height={500}
