@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const ReliablePartner = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -56,17 +57,13 @@ const ReliablePartner = ({ data }) => {
                         <div key={id} className='reliable-partner__row'>
                             <div className='reliable-partner__left'>
                                 <Image
-                                    src={image}
+                                    src={image ? image : notImage}
                                     alt='ReliablePartnerImg'
                                     layout='fill'
                                 />
                             </div>
                             <div className='reliable-partner__right'>
                                 <div className='reliable-partner__content'>
-                                    {/* <div className='sircle__img'>
-                                <img src={ImgSircle} alt='img sircle' />
-                            </div> */}
-                                    {}
                                     <SectionTitle
                                         title={
                                             lang === 'uz'
@@ -90,8 +87,8 @@ const ReliablePartner = ({ data }) => {
                                     />
 
                                     <ul className='reliable-partner__content-row'>
-                                        <li
-                                            className='reliable-partner__content-item'
+                                        <div
+                                            // className='reliable-partner__content-item'
                                             key={id}
                                             dangerouslySetInnerHTML={{
                                                 __html:
