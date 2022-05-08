@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const WhyChoosse = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -39,7 +40,7 @@ const WhyChoosse = ({ data }) => {
                     position='left'
                 />
                 <div className='why-choose__container'>
-                    {items.map(
+                    {items?.map(
                         ({
                             id,
                             title,
@@ -54,7 +55,7 @@ const WhyChoosse = ({ data }) => {
                                 <div className='why-choose-cart__left'>
                                     <div className='why-choose-cart__icon'>
                                         <Image
-                                            src={image}
+                                            src={image ? image : notImage}
                                             width={30}
                                             height={30}
                                         />
