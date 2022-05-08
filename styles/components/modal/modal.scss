@@ -1,68 +1,65 @@
 .modal {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     top: 0;
     left: 0;
     z-index: -99999999;
     visibility: visible;
     opacity: 0;
-    @include flex;
-    background-color: #fff;
+    background-color: $white;
 
     &.show {
         opacity: 1;
         z-index: 9999999999999;
     }
 
-    // &__bg {
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100vh;
-    //     background-color: rgba(30, 40, 69, 0.7);
-    // }
-
-    &-main {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: 300px;
-        background-color: $bodyBg;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
-        z-index: 4;
-
-        @include mobile {
-            width: 90%;
-        }
-
-        &__close {
-            position: absolute;
-            top: -20%;
-            right: 0%;
-            width: 45px;
-            height: 45px;
-            display: block;
-            // margin-left: auto;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            fill: $mainColor;
-
-            &:hover {
-                fill: $red;
-            }
-        }
+    @include mobile {
+        padding: 80px 0;
     }
 }
 
 .modal-main {
+    position: relative;
     width: 100%;
-    background-color: #fff;
-    border-radius: $borderRadius;
-    box-shadow: $shadow;
+    max-width: 1440px;
+    height: max-content;
+    background-color: $white;
     padding: 40px;
+    margin: 60px 0;
+    border-radius: $borderRadius;
+    z-index: 4;
     @include flex(stretch, space-between);
+
+    box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
+
+    @include mobile {
+        width: 90%;
+        margin: 60px auto;
+    }
+
+    &__close {
+        display: block;
+        position: absolute;
+        top: -20%;
+        right: 0%;
+        width: 45px;
+        height: 45px;
+        fill: $sectionTitleBlueColor;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            fill: $red;
+        }
+
+        @include mobile {
+            width: 25px;
+            height: 25px;
+            top: -40px;
+            right: 20px;
+        }
+    }
 
     @media screen and (max-width: 700px) {
         flex-direction: column;
@@ -93,6 +90,7 @@
 
         @media screen and (max-width: 700px) {
             width: 100%;
+            padding: 30px 0;
         }
     }
 
@@ -112,10 +110,10 @@
 
     &__content {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
 
-        @include tablet {
-            align-items: flex-start;
+        @include mobile {
+            flex-direction: column;
         }
 
         &:not(:last-child) {
@@ -131,11 +129,15 @@
     }
 
     &__value {
-        @include font(normal, 600, 16, 14, 130%);
+        @include font(normal, 600, 16, 14, 150%);
         font-family: $fontFamilytTwo;
         letter-spacing: 1.2px;
         color: $txtColor;
         margin-left: 10px;
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 
     &__social {
@@ -149,9 +151,18 @@
             background-color: #f0f9fd;
             @include flex;
             border-radius: 50%;
+            transition: all 0.3s ease;
 
             &:not(:last-child) {
                 margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: $sectionTitleBlueColor;
+
+                .modal-main__social-icon {
+                    fill: $white;
+                }
             }
         }
 
@@ -160,5 +171,23 @@
             height: 20px;
             fill: $sectionTitleBlueColor;
         }
+    }
+}
+
+.scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    @include flex;
+
+    @include mobile {
+        justify-content: unset;
+        align-items: unset;
     }
 }

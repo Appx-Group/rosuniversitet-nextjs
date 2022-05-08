@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from '../../store/features/lang'
@@ -8,7 +8,6 @@ import { notImage } from 'assets/data/PartnersDara/ImagesData'
 const Modal = ({ open, setOpen, data }) => {
     const { lang } = useSelector(selectLangSlice)
     const [modalShow, setModalShow] = useState(open)
-    const mainModal = useRef(null)
     const {
         address,
         address_ru,
@@ -44,9 +43,7 @@ const Modal = ({ open, setOpen, data }) => {
 
     return (
         <div className={`modal ${modalShow ? 'show' : ''}`}>
-            <div onClick={closeModal} className='modal__bg'></div>
-
-            <div className='container'>
+            <div className='scroll'>
                 <div className='modal-main'>
                     <svg
                         id='Layer_1'
@@ -62,7 +59,7 @@ const Modal = ({ open, setOpen, data }) => {
                     <div className='modal-main__left'>
                         <Image
                             src={image ? image : notImage}
-                            alt='branch'
+                            alt='branch image'
                             layout='fill'
                         />
                     </div>

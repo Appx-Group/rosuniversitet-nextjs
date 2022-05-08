@@ -52,7 +52,7 @@ const Footer = ({ footerData }) => {
                         <div className='footer__social'>
                             <a
                                 className='footer__social-item'
-                                href={social.instagram}
+                                href={social?.instagram}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -60,7 +60,7 @@ const Footer = ({ footerData }) => {
                             </a>
                             <a
                                 className='footer__social-item'
-                                href={social.telegram}
+                                href={social?.telegram}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -68,7 +68,7 @@ const Footer = ({ footerData }) => {
                             </a>
                             <a
                                 className='footer__social-item'
-                                href={`mailto:${social.email}`}
+                                href={`mailto:${social?.email}`}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -88,17 +88,17 @@ const Footer = ({ footerData }) => {
                             <LocationSvg className='footer__item-info-icon' />
                             <span className='footer__item-info-text'>
                                 {lang === 'uz'
-                                    ? contact.address_uz
+                                    ? contact?.address_uz
                                     : lang === 'ru'
-                                    ? contact.address_ru
-                                    : contact.address}
+                                    ? contact?.address_ru
+                                    : contact?.address}
                             </span>
                         </div>
                         <div className='footer__item-info'>
                             <TelegramSvg2 className='footer__item-info-icon' />
 
                             <span className='footer__item-info-text'>
-                                {social.email}
+                                {social?.email}
                             </span>
                         </div>
                         <div className='footer__item-info'>
@@ -106,12 +106,12 @@ const Footer = ({ footerData }) => {
 
                             <div className='footer__item-info-text'>
                                 <h3>
-                                    {contact.phone.phone_ru.title}{' '}
-                                    {contact.phone.phone_ru.number}
+                                    {contact?.phone.phone_ru?.title}{' '}
+                                    {contact?.phone.phone_ru?.number}
                                 </h3>
                                 <h3>
-                                    {contact.phone.phone_uz.title}{' '}
-                                    {contact.phone.phone_uz.number}
+                                    {contact?.phone.phone_uz?.title}{' '}
+                                    {contact?.phone.phone_uz?.number}
                                 </h3>
                             </div>
                         </div>
