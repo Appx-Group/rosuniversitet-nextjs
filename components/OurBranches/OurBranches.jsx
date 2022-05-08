@@ -10,6 +10,7 @@ import {
     CallSvg,
 } from '../../assets/icons/Icons'
 import Modal from '../Modal/Modal'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const OurBranches = ({ data }) => {
     const [open, setOpen] = useState(false)
@@ -63,31 +64,31 @@ const OurBranches = ({ data }) => {
                             <div className='our-branches__img'>
                                 <Image
                                     className='our-branches__img-bg'
-                                    src={item.image}
+                                    src={item?.image ? item?.image : notImage}
                                     alt='branches'
                                     layout='fill'
                                 />
-                                {item.social && (
+                                {item?.social && (
                                     <div className='our-branches__social'>
                                         <div className='our-branches__social-item'>
                                             <ShareSvg className='our-branches__social-item-icon' />
                                         </div>
                                         <a
-                                            href={item.social['instagram']}
+                                            href={item?.social['instagram']}
                                             rel='noreferrer'
                                             className='our-branches__social-item'
                                         >
                                             <InstagramSvg className='our-branches__social-item-icon' />
                                         </a>
                                         <a
-                                            href={item.social['telegram']}
+                                            href={item?.social['telegram']}
                                             rel='noreferrer'
                                             className='our-branches__social-item'
                                         >
                                             <TelegramSvg2 className='our-branches__social-item-icon' />
                                         </a>
                                         <a
-                                            href={`tel:${item.social['telegram']}`}
+                                            href={`tel:${item?.social['telegram']}`}
                                             className='our-branches__social-item'
                                         >
                                             <CallSvg className='our-branches__social-item-icon' />
