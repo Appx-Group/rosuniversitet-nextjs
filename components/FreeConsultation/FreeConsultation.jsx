@@ -38,7 +38,7 @@ const FreeConsultation = ({ data }) => {
                 position='center'
                 sircleColor='green'
             />
-            {items.map(
+            {items?.map(
                 ({
                     id,
                     description,
