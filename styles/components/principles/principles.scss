@@ -86,9 +86,9 @@
 
         // .cart-about__subtitle
         &__subtitle {
-            @include font(normal, 600, 16, 16, 160%);
+            @include font(normal, 600, 18, 16, 160%);
             font-family: $fontFamilytTwo;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             color: $txtColor;
             margin-top: 20px;
             text-align: center;
