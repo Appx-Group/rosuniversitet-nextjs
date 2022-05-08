@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Russia = ({ data }) => {
     const { items } = data
@@ -71,7 +72,7 @@ const Russia = ({ data }) => {
                             <div className='russia-section__right'>
                                 <Image
                                     className='russia-section__img'
-                                    src={image}
+                                    src={image ? image : notImage}
                                     alt='russia img'
                                     layout='fill'
                                 />
