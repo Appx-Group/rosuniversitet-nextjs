@@ -14,7 +14,6 @@
         color: $red;
     }
 
-    // flag-cart__img
     &__img {
         position: relative;
         width: 50px;
@@ -29,7 +28,6 @@
         }
     }
 
-    // .flag-cart__text
     &__text {
         @include font(normal, 600, 16, 14, 120%);
         font-family: $fontFamilytTwo;
@@ -74,11 +72,6 @@
     }
 }
 
-.flag-france {
-    top: 25%;
-    right: 50%;
-}
-
 .flag-china {
     top: 15%;
     right: 15%;
@@ -87,9 +80,4 @@
         top: 65%;
         left: 3%;
     }
-}
-
-.flag-kazahistan {
-    top: 10%;
-    right: 15%;
 }

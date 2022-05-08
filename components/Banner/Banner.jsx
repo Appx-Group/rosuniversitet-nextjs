@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { motion } from 'framer-motion'
-import { notImage } from 'assets/data/PartnersDara/ImagesData'
 import PatternThree from '../PattertThree/PatternThree'
 
 import bgPattern from '../../assets/images/home/banner-pattern.png'
@@ -12,6 +11,7 @@ import russiaFlag from '../../assets/images/home/russia-flag.jpg'
 import americanFlag from '../../assets/images/home/american-flag.jpg'
 import turkeyFlag from '../../assets/images/home/turkey-flag.png'
 import chinaFlag from '../../assets/images/home/china-flag.png'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const textAnimation = {
     hidden: {
