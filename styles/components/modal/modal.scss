@@ -28,12 +28,11 @@
     padding: 40px;
     margin: 60px 0;
     border-radius: $borderRadius;
+    box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
     z-index: 4;
     @include flex(stretch, space-between);
 
-    box-shadow: 11px 10px 38px 0 rgb(46 63 99 / 15%);
-
-    @include mobile {
+    @include tablet {
         width: 90%;
         margin: 60px auto;
     }
@@ -42,7 +41,7 @@
         display: block;
         position: absolute;
         top: -20%;
-        right: 0%;
+        right: 20px;
         width: 45px;
         height: 45px;
         fill: $sectionTitleBlueColor;
