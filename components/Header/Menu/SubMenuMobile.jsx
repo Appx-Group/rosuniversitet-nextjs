@@ -48,7 +48,7 @@ const SubMenuMobile = ({
             </div>
             {subMenu?.length > 0 && (
                 <div className={`sub-menu-mobil ${openAcc ? 'active' : ''}`}>
-                    {subMenu.map(({ title, title_ru, title_uz, slug, id }) => (
+                    {subMenu?.map(({ title, title_ru, title_uz, slug, id }) => (
                         <Link
                             key={id}
                             href={`/${slug === '/' ? '' : slug}`}

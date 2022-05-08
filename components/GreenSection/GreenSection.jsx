@@ -7,7 +7,7 @@ const GreenSection = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
     return (
         <div className='container'>
-            {items.map(
+            {items?.map(
                 ({
                     id,
                     title,

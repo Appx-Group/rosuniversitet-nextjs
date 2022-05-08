@@ -5,7 +5,7 @@ const Accordion = ({ data }) => {
     return (
         <div className='accordion'>
             <div className='accordion__row'>
-                {data.map(
+                {data?.map(
                     ({
                         id,
                         title,

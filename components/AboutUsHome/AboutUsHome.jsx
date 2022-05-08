@@ -59,7 +59,7 @@ const AboutUsHome = ({ data }) => {
                     viewport={{ amount: 0.4, once: true }}
                     className='cart-wrap'
                 >
-                    {items.map(
+                    {items?.map(
                         (
                             {
                                 id,

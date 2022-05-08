@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from '../../store/features/lang'
-import { InstagramSvg, TelegramSvg2, CallSvg } from 'assets/icons/Icons'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
+
+import { InstagramSvg, TelegramSvg2, CallSvg } from 'assets/icons/Icons'
 
 const Modal = ({ open, setOpen, data }) => {
     const { lang } = useSelector(selectLangSlice)

@@ -5,10 +5,11 @@ import {
     VerticalTimeline,
     VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
-import { SircleSvg } from 'assets/icons/Icons'
+import { SectionTitle } from '../SectionTitle/SectionTitle'
 
 import 'react-vertical-timeline-component/style.min.css'
-import { SectionTitle } from '../SectionTitle/SectionTitle'
+
+import { SircleSvg } from 'assets/icons/Icons'
 
 const Cooperation = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -41,7 +42,7 @@ const Cooperation = ({ data }) => {
             />
             <div className='cooperation '>
                 <VerticalTimeline lineColor='#F7F7F7'>
-                    {items.map(
+                    {items?.map(
                         (
                             {
                                 id,

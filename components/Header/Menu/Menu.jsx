@@ -35,7 +35,7 @@ const Menu = ({ menuData }) => {
     return (
         <ul ref={activeParent} className='nav__menu'>
             <div ref={activeSircle} className='sircle-active'></div>
-            {menuData.map(
+            {menuData?.map(
                 ({ id, title, title_ru, title_uz, slug, children }) => (
                     <li
                         key={id}

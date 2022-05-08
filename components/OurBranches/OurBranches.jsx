@@ -3,13 +3,14 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from '../../store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import Modal from '../Modal/Modal'
+
 import {
     ShareSvg,
     InstagramSvg,
     TelegramSvg2,
     CallSvg,
 } from '../../assets/icons/Icons'
-import Modal from '../Modal/Modal'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const OurBranches = ({ data }) => {

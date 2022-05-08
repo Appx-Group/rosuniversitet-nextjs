@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Menu from './Menu/Menu'
 import LangSelect from '../LangSelect/LangSelect'
@@ -17,8 +17,6 @@ const Header = ({ menuData }) => {
             ? body.classList.remove('hidden')
             : body.classList.add('hidden')
     }
-
-    const headerRef = useRef(null)
 
     useEffect(() => {
         const body = document.body

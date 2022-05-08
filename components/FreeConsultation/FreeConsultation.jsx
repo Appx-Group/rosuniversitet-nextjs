@@ -17,9 +17,6 @@ const FreeConsultation = ({ data }) => {
         items,
     } = data
 
-    const obj = {
-        image: 'https://site.bronme.uz/images/image-1651926994135.png',
-    }
     return (
         <div className='container'>
             <SectionTitle

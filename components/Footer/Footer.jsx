@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from '../../store/features/lang'
+
 import {
     InstagramSvg,
     TelegramSvg,
@@ -14,6 +15,7 @@ import {
 const Footer = ({ footerData }) => {
     const nowYear = new Date().getFullYear()
     const { lang } = useSelector(selectLangSlice)
+
     if (footerData === null) {
         return <div className='api-error'></div>
     }
@@ -144,7 +146,6 @@ const Footer = ({ footerData }) => {
                     </div>
                     <div className='footer__item'>
                         <h3 className='footer__title'>
-                            {' '}
                             {lang === 'uz'
                                 ? 'Yangi sahifa'
                                 : lang === 'ru'

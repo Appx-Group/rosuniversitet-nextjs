@@ -34,7 +34,7 @@ const NavMenuMobile = ({
                     </div>
                 </div>
                 <ul className='mobil-menu__main'>
-                    {menuData.map(
+                    {menuData?.map(
                         ({ id, title, title_ru, title_uz, slug, children }) => (
                             <SubMenuMobile
                                 key={id}

@@ -182,10 +182,10 @@ const Contacts = ({ data }) => {
                                             : 'Contacts'}
                                     </h2>
                                     <p className='contacts-up__detail-desc'>
-                                        {phone.ru.title} {phone.ru.number}
+                                        {phone?.ru?.title} {phone?.ru?.number}
                                     </p>
                                     <p className='contacts-up__detail-desc'>
-                                        {phone.uz.title} {phone.uz.number}
+                                        {phone?.uz?.title} {phone?.uz?.number}
                                     </p>
                                 </div>
                             </div>

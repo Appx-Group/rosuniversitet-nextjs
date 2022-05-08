@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
-
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 
 const Learning = ({ data }) => {
@@ -18,7 +17,6 @@ const Learning = ({ data }) => {
     return (
         <div className='container'>
             <section className='learning'>
-                {/* <h1 className='learning__title'></h1> */}
                 <SectionTitle
                     title={
                         lang === 'uz'

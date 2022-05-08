@@ -49,7 +49,7 @@ const Branch = ({ data }) => {
                     sircleColor='green'
                 />
                 <div className='branches__row'>
-                    {items.map((item) => (
+                    {items?.map((item) => (
                         <div
                             onClick={(e) => openModal(item)}
                             key={item.id}
@@ -70,25 +70,26 @@ const Branch = ({ data }) => {
                             <div className='branches__content'>
                                 <h2 className='branches__title'>
                                     {lang === 'uz'
-                                        ? item.title_uz
+                                        ? item?.title_uz
                                         : lang === 'ru'
-                                        ? item.title_ru
-                                        : item.title}
+                                        ? item?.title_ru
+                                        : item?.title}
                                 </h2>
                                 <h4 className='branches__subtitle'>
                                     {lang === 'uz'
-                                        ? item.subtitle_uz
+                                        ? item?.subtitle_uz
                                         : lang === 'ru'
-                                        ? item.subtitle_ru
-                                        : item.subtitle}
+                                        ? item?.subtitle_ru
+                                        : item?.subtitle}
                                 </h4>
                                 <button className='branches__btn'>
                                     {lang === 'uz'
                                         ? item.button_text_uz ??
                                           "ko'proq ko'rish"
                                         : lang === 'ru'
-                                        ? item.button_text_ru ?? 'узнать больше'
-                                        : item.button_text ?? 'see more'}
+                                        ? item?.button_text_ru ??
+                                          'узнать больше'
+                                        : item?.button_text ?? 'see more'}
                                 </button>
                                 <div className='branches__pattern'></div>
                             </div>

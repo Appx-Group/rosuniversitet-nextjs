@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const WhyChoosse = ({ data }) => {

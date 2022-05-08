@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 import useWindowSize from 'hooks/useWindowSize'
+
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 import 'swiper/css'
@@ -21,7 +22,7 @@ const SwiperOur = ({ data }) => {
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
             >
-                {data.map((item) => (
+                {data?.map((item) => (
                     <SwiperSlide key={item?.id} className='slide'>
                         <div className='slide-content'>
                             <Image
