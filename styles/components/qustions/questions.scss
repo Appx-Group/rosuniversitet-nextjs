@@ -8,18 +8,4 @@
     &__content {
         padding: 20px 0;
     }
-
-    &__title {
-        @include font(normal, 600, 26, 18, 130%);
-        letter-spacing: 1.2px;
-        color: $txtBlack;
-        margin: 10px 0;
-    }
-
-    &__subtitle {
-        @include font(normal, 500, 18, 18, 130%);
-        letter-spacing: 1.2px;
-        color: $txtColor;
-        margin: 10px 0;
-    }
 }

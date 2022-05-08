@@ -39,20 +39,6 @@ const Questions = ({ data }) => {
                         position='center'
                         sircleColor='green'
                     />
-                    {/* <h1 className='questions__title'>
-                        {lang === 'uz'
-                            ? "Ko'p so'raladigan savollar"
-                            : lang === 'ru'
-                            ? 'Часто задаваемые вопросы'
-                            : 'Frequently asked Questions'}
-                    </h1> */}
-                    {/* <h3 className='questions__subtitle'>
-                        {lang === 'uz'
-                            ? 'Bu yerda siz barcha savollaringizga javob topishingiz mumkin!'
-                            : lang === 'ru'
-                            ? 'Здесь Вы можете найти все ответы на Ваши вопросы!'
-                            : 'Here you can find all the answers to your questions!'}
-                    </h3> */}
                 </div>
                 <Accordion data={items} />
             </div>
