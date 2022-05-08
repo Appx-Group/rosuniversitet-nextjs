@@ -108,12 +108,12 @@ const Footer = ({ footerData }) => {
 
                             <div className='footer__item-info-text'>
                                 <h3>
-                                    {contact?.phone.phone_ru?.title}{' '}
-                                    {contact?.phone.phone_ru?.number}
+                                    {contact?.phone_title_ru}{' '}
+                                    {contact?.phone_ru}
                                 </h3>
                                 <h3>
-                                    {contact?.phone.phone_uz?.title}{' '}
-                                    {contact?.phone.phone_uz?.number}
+                                    {contact?.phone_title_uz}{' '}
+                                    {contact?.phone_uz}
                                 </h3>
                             </div>
                         </div>

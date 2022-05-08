@@ -88,7 +88,7 @@
     }
 
     &__title {
-        @include font(normal, 700, 64, 32, 120%);
+        @include font(normal, 700, 64, 32, 110%);
         font-family: $fontFamily;
         letter-spacing: 2px;
         color: $txtBlack;
