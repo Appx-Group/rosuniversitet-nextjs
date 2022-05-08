@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { selectLangSlice } from 'store/features/lang'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Universities = ({ data, slug }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -56,9 +57,8 @@ const Universities = ({ data, slug }) => {
                             <div key={index} className='universities__card'>
                                 <div className='universities__card-img'>
                                     <Image
-                                        src={image}
+                                        src={image ? image : notImage}
                                         alt='first stepd img'
-                                        // layout='fill'
                                         width={200}
                                         height={200}
                                     />
@@ -70,9 +70,7 @@ const Universities = ({ data, slug }) => {
                                         ? title_ru
                                         : title}
                                 </h2>
-                                {slug === 'universities' ? (
-                                    <></>
-                                ) : (
+                                {slug === 'universities' ? null : (
                                     <p className='universities__card-subtitle'>
                                         {lang === 'uz'
                                             ? subtitle_uz
