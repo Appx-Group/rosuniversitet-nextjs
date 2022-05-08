@@ -119,7 +119,7 @@ const Contacts = ({ data }) => {
                                     : subtitle
                             }
                             theme='white'
-                            position='center'
+                            position='left'
                             sircleColor='green'
                         />
                         <p className='contacts-up__desc'>

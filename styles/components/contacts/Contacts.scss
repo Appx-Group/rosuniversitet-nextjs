@@ -46,7 +46,7 @@
         &__desc {
             @include font(normal, 600, 16, 16, 160%);
             font-family: $fontFamilytTwo;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             color: $txtColor;
             margin-top: 20px;
             text-align: left;
@@ -130,7 +130,7 @@
             &-desc {
                 @include font(normal, 600, 16, 16, 160%);
                 font-family: $fontFamilytTwo;
-                letter-spacing: 1px;
+                letter-spacing: 1.2px;
                 color: $txtColor;
                 transition: all 0.3s ease;
             }

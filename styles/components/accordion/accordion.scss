@@ -86,9 +86,9 @@
     }
 
     &__desc {
-        @include font(normal, 500, 14, 14, 150%);
+        @include font(normal, 500, 16, 14, 150%);
         letter-spacing: 1.2px;
-        color: $black;
+        color: $txtColor;
         padding: 20px;
     }
 }
