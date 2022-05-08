@@ -76,12 +76,6 @@
 
             &-content {
                 margin-left: 15px;
-                h4 {
-                    @include font(normal, 700, 20, 16, 120%);
-                    font-family: $fontFamilytTwo;
-                    letter-spacing: 1.2px;
-                    color: $txtBlack;
-                }
 
                 h5 {
                     margin-top: 5px;

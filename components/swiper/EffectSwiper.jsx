@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Pagination } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/effect-cube'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
-
-import { EffectCoverflow, Pagination } from 'swiper'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const EffectSwiper = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -65,26 +65,19 @@ const EffectSwiper = ({ data }) => {
                                     <div className='swip__person'>
                                         <div className='swip__person-img'>
                                             <Image
-                                                src={image}
+                                                src={image ? image : notImage}
                                                 alt='person img'
                                                 width={150}
                                                 height={150}
                                             />
                                         </div>
                                         <div className='swip__person-content'>
-                                            {/* <h4>
-                                                {lang === 'uz'
-                                                    ? person.name_uz
-                                                    : lang === 'ru'
-                                                    ? person.name_ru
-                                                    : person.name}
-                                            </h4> */}
                                             <h5>
                                                 {lang === 'uz'
-                                                    ? person.name_uz
+                                                    ? person?.name_uz
                                                     : lang === 'ru'
-                                                    ? person.name_ru
-                                                    : person.name}
+                                                    ? person?.name_ru
+                                                    : person?.name}
                                             </h5>
                                         </div>
                                     </div>
