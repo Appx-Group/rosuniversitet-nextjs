@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react'
+import usePathName from 'hooks/usePathName'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 
 const Menu = ({ menuData }) => {
-    const router = useRouter()
+    const url = usePathName()
     const { lang } = useSelector(selectLangSlice)
     const activeParent = useRef(null)
     const activeSircle = useRef(null)
@@ -30,7 +30,7 @@ const Menu = ({ menuData }) => {
 
     useEffect(() => {
         activeSircleChange(avtiveNav.current)
-    }, [])
+    }, [url.path])
 
     return (
         <ul ref={activeParent} className='nav__menu'>
@@ -39,9 +39,9 @@ const Menu = ({ menuData }) => {
                 ({ id, title, title_ru, title_uz, slug, children }) => (
                     <li
                         key={id}
-                        ref={slug == router.pathname ? avtiveNav : null}
+                        ref={`/${slug}` === url.path ? avtiveNav : null}
                         className={`nav__menu-item ${
-                            slug == router.pathname ? 'active' : ''
+                            `/${slug}` === url.path ? 'active' : ''
                         }`}
                         onMouseEnter={(el) => activeSircleChange(el?.target)}
                         onMouseLeave={() =>

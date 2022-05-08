@@ -73,6 +73,10 @@
         font-family: $fontFamily;
         letter-spacing: 1.2px;
         color: $white;
+
+        &.active {
+            color: $sectionTitleBlueColor;
+        }
     }
 
     //  .mobil-menu__main-acc-btn
@@ -118,5 +122,9 @@
         letter-spacing: 1.2px;
         color: $white;
         margin: 10px 0;
+
+        &.active {
+            color: $sectionTitleBlueColor;
+        }
     }
 }

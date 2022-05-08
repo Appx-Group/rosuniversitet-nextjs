@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import usePathName from 'hooks/usePathName'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
@@ -12,6 +13,7 @@ const SubMenuMobile = ({
     subMenu,
     changeBurgerFn,
 }) => {
+    const url = usePathName()
     const { lang } = useSelector(selectLangSlice)
     const [openAcc, setOpenAcc] = useState(false)
     return (
@@ -21,7 +23,11 @@ const SubMenuMobile = ({
                     onClick={changeBurgerFn}
                     href={`/${slug === '/' ? '' : slug}`}
                 >
-                    <a className='mobil-menu__main-link'>
+                    <a
+                        className={`mobil-menu__main-link  ${
+                            `/${slug}` === url.path ? 'active' : ''
+                        }`}
+                    >
                         {lang === 'uz'
                             ? title_uz
                             : lang === 'ru'
@@ -54,7 +60,11 @@ const SubMenuMobile = ({
                             href={`/${slug === '/' ? '' : slug}`}
                             onClick={changeBurgerFn}
                         >
-                            <a className='sub-menu-mobil__link'>
+                            <a
+                                className={`sub-menu-mobil__link  ${
+                                    `/${slug}` === url.path ? 'active' : ''
+                                }`}
+                            >
                                 {lang === 'uz'
                                     ? title_uz
                                     : lang === 'ru'
