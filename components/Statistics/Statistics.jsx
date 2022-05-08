@@ -38,7 +38,7 @@ const Statistics = ({ data }) => {
                     sircleColor='green'
                 />
                 <div className='statistics__row'>
-                    {items.map(
+                    {items?.map(
                         ({
                             id,
                             title,
