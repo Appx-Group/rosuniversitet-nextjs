@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
+import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Principles = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -40,23 +41,20 @@ const Principles = ({ data }) => {
                 />
                 <div className='cart-wrap'>
                     {items.map(
-                        (
-                            {
-                                id,
-                                title,
-                                title_ru,
-                                title_uz,
-                                subtitle,
-                                subtitle_ru,
-                                subtitle_uz,
-                                image,
-                            },
-                            index
-                        ) => (
+                        ({
+                            id,
+                            title,
+                            title_ru,
+                            title_uz,
+                            subtitle,
+                            subtitle_ru,
+                            subtitle_uz,
+                            image,
+                        }) => (
                             <div key={id} className='cart-about-principles'>
                                 <div className='cart-about-principles__img'>
                                     <Image
-                                        src={image}
+                                        src={image ? image : notImage}
                                         alt='about cart img'
                                         width={200}
                                         height={180}
