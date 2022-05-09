@@ -53,7 +53,7 @@ body {
 .styles_scroll-to-top__2A70v {
     bottom: 90px !important;
     background-color: $sectionTitleBlueColor !important;
-    z-index: 9999 !important;
+    z-index: 100 !important;
     transition: all 0.3s ease;
 
     &:hover {
