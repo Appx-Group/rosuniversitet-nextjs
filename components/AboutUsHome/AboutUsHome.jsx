@@ -30,7 +30,6 @@ const AboutUsHome = ({ data }) => {
         title_ru,
         items,
     } = data
-    console.log(data)
     return (
         <section className='about-us-home'>
             <div className='container'>
