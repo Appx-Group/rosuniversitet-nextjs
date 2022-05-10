@@ -20,34 +20,25 @@ const cardtAnimation = {
 
 const AboutUsHome = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
-    const {
-        id,
-        subtitle,
-        subtitle_uz,
-        subtitle_ru,
-        title,
-        title_uz,
-        title_ru,
-        items,
-    } = data
+
     return (
         <section className='about-us-home'>
             <div className='container'>
                 <SectionTitle
                     title={
                         lang === 'uz'
-                            ? title_uz
+                            ? data?.title_uz
                             : lang === 'ru'
-                            ? title_ru
-                            : title
+                            ? data?.title_ru
+                            : data?.title
                     }
                     titleBlue={lang === 'uz' ? '' : lang === '' ? '' : ''}
                     subTitle={
                         lang === 'uz'
-                            ? subtitle_uz
+                            ? data?.subtitle_uz
                             : lang === 'ru'
-                            ? subtitle_ru
-                            : subtitle
+                            ? data?.subtitle_ru
+                            : data?.subtitle
                     }
                     theme='white'
                     position='center'
@@ -59,53 +50,39 @@ const AboutUsHome = ({ data }) => {
                     viewport={{ amount: 0.4, once: true }}
                     className='cart-wrap'
                 >
-                    {items?.map(
-                        (
-                            {
-                                id,
-                                title,
-                                title_ru,
-                                title_uz,
-                                subtitle,
-                                subtitle_ru,
-                                subtitle_uz,
-                                image,
-                            },
-                            index
-                        ) => (
-                            <motion.div
-                                key={id}
-                                custom={index + 1}
-                                variants={cardtAnimation}
-                                className='cart-about'
-                            >
-                                <div className='cart-about__img'>
-                                    <Image
-                                        src={image ? image : notImage}
-                                        alt='about cart img'
-                                        width={200}
-                                        height={180}
-                                    />
-                                </div>
-                                <div className='cart-about__content'>
-                                    <h2 className='cart-about__title'>
-                                        {lang === 'uz'
-                                            ? title_uz
-                                            : lang === 'ru'
-                                            ? title_ru
-                                            : title}
-                                    </h2>
-                                    <p className='cart-about__subtitle'>
-                                        {lang === 'uz'
-                                            ? subtitle_uz
-                                            : lang === 'ru'
-                                            ? subtitle_ru
-                                            : subtitle}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        )
-                    )}
+                    {data?.items?.map((item, index) => (
+                        <motion.div
+                            key={item?.id}
+                            custom={index + 1}
+                            variants={cardtAnimation}
+                            className='cart-about'
+                        >
+                            <div className='cart-about__img'>
+                                <Image
+                                    src={item?.image ? item?.image : notImage}
+                                    alt='about cart img'
+                                    width={200}
+                                    height={180}
+                                />
+                            </div>
+                            <div className='cart-about__content'>
+                                <h2 className='cart-about__title'>
+                                    {lang === 'uz'
+                                        ? item?.title_uz
+                                        : lang === 'ru'
+                                        ? item?.title_ru
+                                        : item?.title}
+                                </h2>
+                                <p className='cart-about__subtitle'>
+                                    {lang === 'uz'
+                                        ? item?.subtitle_uz
+                                        : lang === 'ru'
+                                        ? item?.subtitle_ru
+                                        : item?.subtitle}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </motion.div>
             </div>
         </section>
