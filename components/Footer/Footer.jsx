@@ -16,6 +16,8 @@ const Footer = ({ footerData }) => {
     const nowYear = new Date().getFullYear()
     const { lang } = useSelector(selectLangSlice)
 
+    console.log(footerData)
+
     if (footerData === null) {
         return <div className='api-error'></div>
     }
@@ -97,11 +99,19 @@ const Footer = ({ footerData }) => {
                             <div className='footer__item-info-text'>
                                 <h3>
                                     {footerData?.contact?.phone_title_ru}{' '}
-                                    {footerData?.contact?.phone_ru}
+                                    <span>
+                                        {footerData?.contact?.phone_ru_first}
+                                        <br />
+                                        {footerData?.contact?.phone_ru_second}
+                                    </span>
                                 </h3>
                                 <h3>
                                     {footerData?.contact?.phone_title_uz}{' '}
-                                    {footerData?.contact?.phone_uz}
+                                    <span>
+                                        {footerData?.contact?.phone_uz_first}
+                                        <br />
+                                        {footerData?.contact?.phone_uz_second}
+                                    </span>
                                 </h3>
                             </div>
                         </div>

@@ -8,13 +8,11 @@
         padding: 40px 0;
     }
 
-    // .footer-top
     &-top {
         @include flex(flex-start, space-between);
         flex-wrap: wrap;
     }
 
-    // .footer__item
     &__item {
         width: 25%;
         display: flex;
@@ -33,7 +31,6 @@
             width: 100%;
         }
 
-        // footer__item-info
         &-info {
             &:not(:last-child) {
                 margin-bottom: 10px;
@@ -48,7 +45,6 @@
             }
 
             &-text {
-                // width: 85%;
                 @include font(normal, 600, 14, 14, 160%);
                 letter-spacing: 1.1px;
                 color: $txtColorLink;
@@ -59,11 +55,12 @@
                     font-family: $fontFamilytTwo;
                     letter-spacing: 1.1px;
                     color: $txtColorLink;
+                    @include flex(flex-start, flex-start);
+                    column-gap: 10px;
                 }
             }
         }
 
-        // footer__item-link
         &-link {
             @include font(normal, 600, 14, 14, 160%);
             letter-spacing: 1.1px;
@@ -89,7 +86,6 @@
         }
     }
 
-    // .footer__logo
     &__logo {
         @include font(normal, 700, 28, 22, 120%);
         text-transform: uppercase;
@@ -98,7 +94,6 @@
         margin-bottom: 20px;
     }
 
-    // .footer__desc
     &__desc {
         @include font(normal, 600, 14, 14, 160%);
         letter-spacing: 1.1px;
@@ -106,7 +101,6 @@
         max-width: 300px;
     }
 
-    // footer__social
     &__social {
         display: flex;
         align-items: center;
@@ -137,7 +131,6 @@
         }
     }
 
-    // footer__title
     &__title {
         @include font(normal, 600, 18, 16, 160%);
         letter-spacing: 1.2px;
@@ -149,7 +142,6 @@
         }
     }
 
-    // footer__line
     &__line {
         width: 100%;
         border-top: 1px solid #ffffff26;
@@ -165,7 +157,6 @@
             align-items: flex-start;
         }
 
-        //  footer-bottom__about
         &__about {
             @include font(normal, 600, 14, 14, 160%);
             letter-spacing: 1.1px;
@@ -176,7 +167,6 @@
             }
         }
 
-        //  footer-bottom__text
         &__text {
             @include font(normal, 600, 14, 14, 160%);
             letter-spacing: 1.1px;
