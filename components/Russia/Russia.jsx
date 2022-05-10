@@ -6,80 +6,62 @@ import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Russia = ({ data }) => {
-    const { items } = data
     const { lang } = useSelector(selectLangSlice)
     return (
         <div className='container'>
             <section className='russia'>
-                {items.map(
-                    (
-                        {
-                            id,
-                            title,
-                            title_uz,
-                            title_ru,
-                            subtitle_ru,
-                            subtitle_uz,
-                            subtitle,
-                            image,
-                            text,
-                            text_ru,
-                            text_uz,
-                        },
-                        index
-                    ) => (
-                        <div
-                            key={id}
-                            className={`russia-section ${
-                                (index + 1) % 2 === 0 ? 'reverse' : ''
-                            }`}
-                        >
-                            <div className='russia-section__left '>
-                                <SectionTitle
-                                    title={
+                {data?.items.map((item, index) => (
+                    <div
+                        key={item?.id}
+                        className={`russia-section ${
+                            (index + 1) % 2 === 0 ? 'reverse' : ''
+                        }`}
+                    >
+                        <div className='russia-section__left '>
+                            <SectionTitle
+                                title={
+                                    lang === 'uz'
+                                        ? item?.title_uz
+                                        : lang === 'ru'
+                                        ? item?.title_ru
+                                        : item?.title
+                                }
+                                titleBlue=''
+                                subTitle={
+                                    lang === 'uz'
+                                        ? item?.subtitle_uz
+                                        : lang === 'ru'
+                                        ? item?.subtitle_ru
+                                        : item?.subtitle
+                                }
+                                theme='white'
+                                position='left'
+                                textPosition='left'
+                                sircleColor='green'
+                            />
+                            <div
+                                className='russia-section__desc'
+                                key={item?.d}
+                                dangerouslySetInnerHTML={{
+                                    __html:
                                         lang === 'uz'
-                                            ? title_uz
+                                            ? item?.text_uz
                                             : lang === 'ru'
-                                            ? title_ru
-                                            : title
-                                    }
-                                    titleBlue=''
-                                    subTitle={
-                                        lang === 'uz'
-                                            ? subtitle_uz
-                                            : lang === 'ru'
-                                            ? subtitle_ru
-                                            : subtitle
-                                    }
-                                    theme='white'
-                                    position='left'
-                                    textPosition='left'
-                                    sircleColor='green'
-                                />
-                                <div
-                                    className='russia-section__desc'
-                                    key={id}
-                                    dangerouslySetInnerHTML={{
-                                        __html:
-                                            lang === 'uz'
-                                                ? text_uz
-                                                : lang === 'ru'
-                                                ? text_ru
-                                                : text,
-                                    }}
-                                />
-                            </div>
-                            <div className='russia-section__right'>
-                                <Image
-                                    className='russia-section__img'
-                                    src={image ? image : notImage}
-                                    alt='russia img'
-                                    layout='fill'
-                                />
-                            </div>
+                                            ? item?.text_ru
+                                            : item?.text,
+                                }}
+                            />
                         </div>
-                    )
-                )}
+                        <div className='russia-section__right'>
+                            <Image
+                                className='russia-section__img'
+                                src={item?.image ? item?.image : notImage}
+                                alt='russia img'
+                                layout='fill'
+                            />
+                        </div>
+                    </div>
+                ))}
             </section>
         </div>
     )
