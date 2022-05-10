@@ -17,18 +17,6 @@ import { notImage } from 'assets/data/PartnersDara/ImagesData'
 const Banner = ({ data }) => {
     const size = useWindowSize()
     const { lang } = useSelector(selectLangSlice)
-    const {
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        link,
-        image,
-    } = data
-
-    console.log(size.width)
     return (
         <div className='container-full'>
             <motion.section
