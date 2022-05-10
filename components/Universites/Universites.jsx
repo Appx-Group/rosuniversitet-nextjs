@@ -17,6 +17,8 @@ const Universities = ({ data, slug }) => {
         items,
     } = data
 
+    console.log(data)
+
     return (
         <div className='container'>
             <section className='universities'>

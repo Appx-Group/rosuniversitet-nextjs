@@ -15,10 +15,10 @@ export const SectionTitle = ({
                 <span
                     className={`section__sub-title_sircle ${sircleColor}`}
                 ></span>{' '}
-                <span>{subTitle}</span>
+                <span>{title}</span>
             </h3>
             <h1 className={`section__title ${theme} ${textPosition}`}>
-                {title}
+                {subTitle}
                 <span className='section__title_blue'> {titleBlue}</span>
             </h1>
         </div>
