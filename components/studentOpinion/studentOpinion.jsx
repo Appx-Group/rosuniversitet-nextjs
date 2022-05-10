@@ -10,40 +10,32 @@ import ImgFlagThree from '../../assets/images/home/studentOpinion/flagThree.png'
 
 const StudentOpinion = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
-    const {
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        items,
-    } = data
+
     return (
         <section className='student-opinion'>
             <div className='container'>
                 <SectionTitle
                     title={
                         lang === 'uz'
-                            ? title_uz
+                            ? data?.title_uz
                             : lang === 'ru'
-                            ? title_ru
-                            : title
+                            ? data?.title_ru
+                            : data?.title
                     }
                     titleBlue=''
                     subTitle={
                         lang === 'uz'
-                            ? subtitle_uz
+                            ? data?.subtitle_uz
                             : lang === 'ru'
-                            ? subtitle_ru
-                            : subtitle
+                            ? data?.subtitle_ru
+                            : data?.subtitle
                     }
                     theme='white'
                     position='center'
                     sircleColor='green'
                 />
             </div>
-            <EffectSwiper data={items} />
+            <EffectSwiper data={data?.items} />
             <div className='student-opinion__flag student-opinion__flag_one'>
                 <Image src={ImgFlagOne} alt='flag' />
             </div>
