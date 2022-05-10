@@ -1,0 +1,23 @@
+.global-form {
+    margin: 60px 0;
+
+    @include mobile {
+        margin: 40px 0;
+    }
+
+    &__item {
+        @include flex(center, space-between);
+        margin: 20px 0;
+        min-height: 50px !important;
+    }
+
+    &__left {
+        width: 49%;
+        height: 50px;
+    }
+
+    &__right {
+        width: 49%;
+        height: 50px;
+    }
+}

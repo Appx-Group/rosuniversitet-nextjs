@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useFormatPhoneNumber } from 'hooks/useFormatPhoneNumber'
 import Image from 'next/image'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
@@ -14,6 +15,7 @@ import {
     LocationSvg,
     TelegramSvg,
     CallSvg,
+    CallSvg2,
 } from '../../assets/icons/Icons'
 
 const Contacts = ({ data }) => {
@@ -22,6 +24,14 @@ const Contacts = ({ data }) => {
     const [emailInput, setEmailInput] = useState('')
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
+    const [inputValue, setInputValue] = useState('')
+
+    const handleInput = (e) => {
+        // this is where we'll call our future formatPhoneNumber function that we haven't written yet.
+        const formattedPhoneNumber = useFormatPhoneNumber(e.target.value)
+        // we'll set the input value using our setInputValue
+        setInputValue(formattedPhoneNumber)
+    }
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -253,6 +263,29 @@ const Contacts = ({ data }) => {
                                     }
                                 />
                                 <UserSvg className='contacts-down__icon' />
+                            </div>
+                            <div className='contacts-down__item'>
+                                <input
+                                    required
+                                    className={`contacts-down__input ${
+                                        btnShow
+                                            ? emailInput.length === 0 && btnShow
+                                                ? 'red'
+                                                : 'green'
+                                            : ''
+                                    }`}
+                                    type='email'
+                                    onChange={(e) => handleInput(e)}
+                                    value={inputValue}
+                                    placeholder={
+                                        lang === 'uz'
+                                            ? 'Number'
+                                            : lang === 'ru'
+                                            ? 'Number'
+                                            : 'Number'
+                                    }
+                                />
+                                <CallSvg2 className='contacts-down__icon' />
                             </div>
                             <div className='contacts-down__item'>
                                 <input

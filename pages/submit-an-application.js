@@ -1,9 +1,15 @@
 import React from 'react'
 import Contacts from '@/components/Contacts/Contacts'
+import GlobalForm from '@/components/GlobalForm/GlobalForm'
 
 const contacts = ({ data, success }) => {
     console.log(data, success)
-    return <div>{<Contacts data={data} />}</div>
+    return (
+        <div>
+            {<Contacts data={data} />}
+            {/* <GlobalForm /> */}
+        </div>
+    )
 }
 
 export default contacts
