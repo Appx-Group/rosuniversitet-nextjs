@@ -7,104 +7,82 @@ import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const ReliablePartner = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
-    const {
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        items,
-    } = data
+
     return (
         <div className='container'>
             <section className='reliable-partner'>
                 <SectionTitle
                     title={
                         lang === 'uz'
-                            ? title_uz
+                            ? data?.title_uz
                             : lang === 'ru'
-                            ? title_ru
-                            : title
+                            ? data?.title_ru
+                            : data?.title
                     }
                     titleBlue=''
                     subTitle={
                         lang === 'uz'
-                            ? subtitle_uz
+                            ? data?.subtitle_uz
                             : lang === 'ru'
-                            ? subtitle_ru
-                            : subtitle
+                            ? data?.subtitle_ru
+                            : data?.subtitle
                     }
                     theme='white'
                     position='center'
                     sircleColor='green'
                 />
                 {}
-                {items.map(
-                    ({
-                        id,
-                        title,
-                        title_ru,
-                        title_uz,
-                        subtitle,
-                        subtitle_uz,
-                        subtitle_ru,
-                        text,
-                        text_ru,
-                        text_uz,
-                        image,
-                    }) => (
-                        <div key={id} className='reliable-partner__row'>
-                            <div className='reliable-partner__left'>
-                                <Image
-                                    src={image ? image : notImage}
-                                    alt='ReliablePartnerImg'
-                                    layout='fill'
+                {data?.items.map((item) => (
+                    <div key={item?.id} className='reliable-partner__row'>
+                        <div className='reliable-partner__left'>
+                            <Image
+                                src={item?.image ? item?.image : notImage}
+                                alt='ReliablePartnerImg'
+                                layout='fill'
+                            />
+                        </div>
+                        <div className='reliable-partner__right'>
+                            <div className='reliable-partner__content'>
+                                <SectionTitle
+                                    title={
+                                        lang === 'uz'
+                                            ? item?.title_uz
+                                            : lang === 'ru'
+                                            ? item?.title_ru
+                                            : item?.title
+                                    }
+                                    titleBlue=''
+                                    subTitle={
+                                        lang === 'uz'
+                                            ? item?.subtitle_uz
+                                            : lang === 'ru'
+                                            ? item?.subtitle_ru
+                                            : item?.subtitle
+                                    }
+                                    theme='white'
+                                    position='left'
+                                    textPosition='left'
+                                    sircleColor='green'
                                 />
-                            </div>
-                            <div className='reliable-partner__right'>
-                                <div className='reliable-partner__content'>
-                                    <SectionTitle
-                                        title={
-                                            lang === 'uz'
-                                                ? title_uz
-                                                : lang === 'ru'
-                                                ? title_ru
-                                                : title
-                                        }
-                                        titleBlue=''
-                                        subTitle={
-                                            lang === 'uz'
-                                                ? subtitle_uz
-                                                : lang === 'ru'
-                                                ? subtitle_ru
-                                                : subtitle
-                                        }
-                                        theme='white'
-                                        position='left'
-                                        textPosition='left'
-                                        sircleColor='green'
-                                    />
 
-                                    <ul className='reliable-partner__content-row'>
-                                        <div
-                                            // className='reliable-partner__content-item'
-                                            key={id}
-                                            dangerouslySetInnerHTML={{
-                                                __html:
-                                                    lang === 'uz'
-                                                        ? text_uz
-                                                        : lang === 'ru'
-                                                        ? text_ru
-                                                        : text,
-                                            }}
-                                        />
-                                    </ul>
-                                </div>
+                                <ul className='reliable-partner__content-row'>
+                                    <div
+                                        // className='reliable-partner__content-item'
+                                        key={item?.id}
+                                        dangerouslySetInnerHTML={{
+                                            __html:
+                                                lang === 'uz'
+                                                    ? item?.text_uz
+                                                    : lang === 'ru'
+                                                    ? item?.text_ru
+                                                    : item?.text,
+                                        }}
+                                    />
+                                </ul>
                             </div>
                         </div>
-                    )
-                )}
+                    </div>
+                ))}
             </section>
         </div>
     )
