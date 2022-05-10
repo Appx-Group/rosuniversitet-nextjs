@@ -35,72 +35,62 @@ const Menu = ({ menuData }) => {
     return (
         <ul ref={activeParent} className='nav__menu'>
             <div ref={activeSircle} className='sircle-active'></div>
-            {menuData?.map(
-                ({ id, title, title_ru, title_uz, slug, children }) => (
-                    <li
-                        key={id}
-                        ref={`/${slug}` === url.path ? avtiveNav : null}
-                        className={`nav__menu-item ${
-                            `/${slug}` === url.path ? 'active' : ''
-                        }`}
-                        onMouseEnter={(el) => activeSircleChange(el?.target)}
-                        onMouseLeave={() =>
-                            activeSircleChange(
-                                document.querySelector('.nav__menu-item.active')
-                            )
-                        }
-                    >
-                        <Link href={`/${slug === '/' ? '' : slug}`}>
-                            <a className='nav__menu-link'>
-                                {lang === 'uz'
-                                    ? title_uz
-                                    : lang === 'ru'
-                                    ? title_ru
-                                    : title}
-                                {children?.length > 0 && (
-                                    <svg
-                                        xmlns='http://www.w3.org/2000/svg'
-                                        width='24'
-                                        height='24'
-                                    >
-                                        <path d='M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z'></path>
-                                    </svg>
-                                )}
-                            </a>
-                        </Link>
+            {menuData?.map((item) => (
+                <li
+                    key={item?.id}
+                    ref={`/${item?.slug}` === url.path ? avtiveNav : null}
+                    className={`nav__menu-item ${
+                        `/${item?.slug}` === url.path ? 'active' : ''
+                    }`}
+                    onMouseEnter={(el) => activeSircleChange(el?.target)}
+                    onMouseLeave={() =>
+                        activeSircleChange(
+                            document.querySelector('.nav__menu-item.active')
+                        )
+                    }
+                >
+                    <Link href={`/${item?.slug === '/' ? '' : item?.slug}`}>
+                        <a className='nav__menu-link'>
+                            {lang === 'uz'
+                                ? item?.title_uz
+                                : lang === 'ru'
+                                ? item?.title_ru
+                                : item?.title}
+                            {item?.children?.length > 0 && (
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='24'
+                                    height='24'
+                                >
+                                    <path d='M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z'></path>
+                                </svg>
+                            )}
+                        </a>
+                    </Link>
 
-                        {children?.length > 0 && (
-                            <ul className='sub-menu'>
-                                {children.map(
-                                    ({
-                                        title,
-                                        title_ru,
-                                        title_uz,
-                                        slug,
-                                        id,
-                                    }) => (
-                                        <li key={id} className='sub-menu__item'>
-                                            <Link
-                                                href={`/${
-                                                    slug === '/' ? '' : slug
-                                                }`}
-                                            >
-                                                <a className='sub-menu__link'>
-                                                    {lang === 'uz'
-                                                        ? title_uz
-                                                        : lang === 'ru'
-                                                        ? title_ru
-                                                        : title}
-                                                </a>
-                                            </Link>
-                                        </li>
-                                    )
-                                )}
-                            </ul>
-                        )}
-                    </li>
-                )
-            )}
+                    {item?.children?.length > 0 && (
+                        <ul className='sub-menu'>
+                            {item?.children.map((item) => (
+                                <li key={item?.id} className='sub-menu__item'>
+                                    <Link
+                                        href={`/${
+                                            item?.slug === '/' ? '' : item?.slug
+                                        }`}
+                                    >
+                                        <a className='sub-menu__link'>
+                                            {lang === 'uz'
+                                                ? item?.title_uz
+                                                : lang === 'ru'
+                                                ? item?.title_ru
+                                                : item?.title}
+                                        </a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </li>
+            ))}
         </ul>
     )
 }
