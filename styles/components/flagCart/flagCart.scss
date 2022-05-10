@@ -37,6 +37,8 @@
     }
 }
 
+// flag banner
+
 .flag-wrapper {
     position: absolute;
     z-index: -1;
@@ -75,6 +77,64 @@
 .flag-china {
     top: 15%;
     right: 15%;
+
+    @include mobile {
+        top: 65%;
+        left: 3%;
+    }
+}
+
+.flag-five {
+    top: 40%;
+    right: 15%;
+
+    @include mobile {
+        top: 65%;
+        left: 3%;
+    }
+}
+
+.flag-six {
+    top: 50%;
+    right: 4%;
+
+    @include mobile {
+        top: 65%;
+        left: 3%;
+    }
+}
+
+.flag-seven {
+    top: 40%;
+    left: 45%;
+
+    @include mobile {
+        top: 65%;
+        left: 3%;
+    }
+}
+
+.flag-eight {
+    top: 70%;
+    right: 25%;
+
+    @include mobile {
+        top: 65%;
+        left: 3%;
+    }
+}
+.flag-nine {
+    top: 67%;
+    right: 10%;
+
+    @include mobile {
+        top: 75%;
+        left: 3%;
+    }
+}
+.flag-ten {
+    top: 90%;
+    right: 10%;
 
     @include mobile {
         top: 65%;
