@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useFormatPhoneNumber } from 'hooks/useFormatPhoneNumber'
 import Image from 'next/image'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
@@ -25,13 +24,6 @@ const Contacts = ({ data }) => {
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
     const [inputValue, setInputValue] = useState('')
-
-    const handleInput = (e) => {
-        // this is where we'll call our future formatPhoneNumber function that we haven't written yet.
-        const formattedPhoneNumber = useFormatPhoneNumber(e.target.value)
-        // we'll set the input value using our setInputValue
-        setInputValue(formattedPhoneNumber)
-    }
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -274,9 +266,7 @@ const Contacts = ({ data }) => {
                                                 : 'green'
                                             : ''
                                     }`}
-                                    type='email'
-                                    onChange={(e) => handleInput(e)}
-                                    value={inputValue}
+                                    type='text'
                                     placeholder={
                                         lang === 'uz'
                                             ? 'Number'
