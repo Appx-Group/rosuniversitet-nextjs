@@ -22,33 +22,6 @@ const Contacts = ({ data }) => {
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
     const { lang } = useSelector(selectLangSlice)
-    const {
-        address,
-        address_ru,
-        address_uz,
-        description,
-        description_ru,
-        description_uz,
-        email,
-        form_description,
-        form_description_ru,
-        form_description_uz,
-        form_subtitle,
-        form_subtitle_ru,
-        form_subtitle_uz,
-        form_title,
-        form_title_ru,
-        form_title_uz,
-        image,
-        map,
-        phone,
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-    } = data
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -84,6 +57,7 @@ const Contacts = ({ data }) => {
         }
     }
 
+    console.log(data)
     return (
         <div className='container'>
             <div className='contacts'>
@@ -104,20 +78,20 @@ const Contacts = ({ data }) => {
                         <SectionTitle
                             title={
                                 lang === 'uz'
-                                    ? title_uz
+                                    ? data?.title_uz
                                     : lang === 'ru'
-                                    ? title_ru
-                                    : title
+                                    ? data?.title_ru
+                                    : data?.title
                             }
                             titleBlue={
                                 lang === 'uz' ? '' : lang === '' ? '' : ''
                             }
                             subTitle={
                                 lang === 'uz'
-                                    ? subtitle_uz
+                                    ? data?.subtitle_uz
                                     : lang === 'ru'
-                                    ? subtitle_ru
-                                    : subtitle
+                                    ? data?.subtitle_ru
+                                    : data?.subtitle
                             }
                             theme='white'
                             position='left'
@@ -125,10 +99,10 @@ const Contacts = ({ data }) => {
                         />
                         <p className='contacts-up__desc'>
                             {lang === 'uz'
-                                ? description_uz
+                                ? data?.description_uz
                                 : lang === 'ru'
-                                ? description_ru
-                                : description}
+                                ? data?.description_ru
+                                : data?.description}
                         </p>
 
                         <div className='contacts-up__detail'>
@@ -146,10 +120,10 @@ const Contacts = ({ data }) => {
                                     </h2>
                                     <p className='contacts-up__detail-desc'>
                                         {lang === 'uz'
-                                            ? address_uz
+                                            ? data?.address_uz
                                             : lang === 'ru'
-                                            ? address_ru
-                                            : address}
+                                            ? data?.address_ru
+                                            : data?.address}
                                     </p>
                                 </div>
                             </div>
@@ -166,7 +140,7 @@ const Contacts = ({ data }) => {
                                             : 'Mail'}
                                     </h2>
                                     <p className='contacts-up__detail-desc'>
-                                        {email}
+                                        {data?.email}
                                     </p>
                                 </div>
                             </div>
@@ -183,10 +157,12 @@ const Contacts = ({ data }) => {
                                             : 'Contacts'}
                                     </h2>
                                     <p className='contacts-up__detail-desc'>
-                                        {phone?.ru_title} {phone?.ru_number}
+                                        {data?.phone?.ru_title}{' '}
+                                        {data?.phone?.ru_number}
                                     </p>
                                     <p className='contacts-up__detail-desc'>
-                                        {phone?.uz_title} {phone?.uz_number}
+                                        {data?.phone?.uz_title}{' '}
+                                        {data?.phone?.uz_number}
                                     </p>
                                 </div>
                             </div>
@@ -196,7 +172,7 @@ const Contacts = ({ data }) => {
                     <div
                         className='contacts-up__right'
                         dangerouslySetInnerHTML={{
-                            __html: map,
+                            __html: data?.map,
                         }}
                     />
                 </div>
@@ -204,7 +180,7 @@ const Contacts = ({ data }) => {
                     <div className='contacts-down__left'>
                         <Image
                             className='contacts-down__img'
-                            src={image ? image : notImage}
+                            src={data?.image ? data?.image : notImage}
                             alt='cotacts img'
                             width={550}
                             height={500}
@@ -214,18 +190,18 @@ const Contacts = ({ data }) => {
                         <SectionTitle
                             title={
                                 lang === 'uz'
-                                    ? form_title_uz
+                                    ? data?.form_title_uz
                                     : lang === 'ru'
-                                    ? form_title_ru
-                                    : form_title
+                                    ? data?.form_title_ru
+                                    : data?.form_title
                             }
                             titleBlue=''
                             subTitle={
                                 lang === 'uz'
-                                    ? form_subtitle_uz
+                                    ? data?.form_subtitle_uz
                                     : lang === 'ru'
-                                    ? form_subtitle_ru
-                                    : form_subtitle
+                                    ? data?.form_subtitle_ru
+                                    : data?.form_subtitle
                             }
                             theme='white'
                             position='left'
@@ -234,10 +210,10 @@ const Contacts = ({ data }) => {
                         />
                         <p className='contacts-up__desc'>
                             {lang === 'uz'
-                                ? form_description_uz
+                                ? data?.form_description_uz
                                 : lang === 'ru'
-                                ? form_description_ru
-                                : form_description}
+                                ? data?.form_description_ru
+                                : data?.form_description}
                         </p>
 
                         <form className='contacts-down__form'>
