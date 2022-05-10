@@ -34,58 +34,50 @@ const EffectSwiper = ({ data }) => {
                     }}
                     modules={[EffectCoverflow, Pagination]}
                 >
-                    {data?.map(
-                        ({
-                            id,
-                            title,
-                            title_uz,
-                            title_ru,
-                            subtitle,
-                            subtitle_uz,
-                            subtitle_ru,
-                            person,
-                            image,
-                        }) => (
-                            <SwiperSlide key={id}>
-                                <div className='swip'>
-                                    <h3 className='swip__title'>
-                                        {lang === 'uz'
-                                            ? title_uz
-                                            : lang === 'ru'
-                                            ? title_ru
-                                            : title}
-                                    </h3>
-                                    <p className='swip__desc'>
-                                        {lang === 'uz'
-                                            ? subtitle_uz
-                                            : lang === 'ru'
-                                            ? subtitle_ru
-                                            : subtitle}
-                                    </p>
-                                    <div className='swip__person'>
-                                        <div className='swip__person-img'>
-                                            <Image
-                                                src={image ? image : notImage}
-                                                alt='person img'
-                                                width={150}
-                                                height={150}
-                                            />
-                                        </div>
-                                        <div className='swip__person-content'>
-                                            <h5>
-                                                {lang === 'uz'
-                                                    ? person?.name_uz
-                                                    : lang === 'ru'
-                                                    ? person?.name_ru
-                                                    : person?.name}
-                                            </h5>
-                                        </div>
+                    {data?.map((item) => (
+                        <SwiperSlide key={item?.id}>
+                            <div className='swip'>
+                                <h3 className='swip__title'>
+                                    {lang === 'uz'
+                                        ? item?.title_uz
+                                        : lang === 'ru'
+                                        ? item?.title_ru
+                                        : item?.title}
+                                </h3>
+                                <p className='swip__desc'>
+                                    {lang === 'uz'
+                                        ? item?.subtitle_uz
+                                        : lang === 'ru'
+                                        ? item?.subtitle_ru
+                                        : item?.subtitle}
+                                </p>
+                                <div className='swip__person'>
+                                    <div className='swip__person-img'>
+                                        <Image
+                                            src={
+                                                item?.image
+                                                    ? item?.image
+                                                    : notImage
+                                            }
+                                            alt='person img'
+                                            width={150}
+                                            height={150}
+                                        />
                                     </div>
-                                    <div className='swip__patern'></div>
+                                    <div className='swip__person-content'>
+                                        <h5>
+                                            {lang === 'uz'
+                                                ? item?.person?.name_uz
+                                                : lang === 'ru'
+                                                ? item?.person?.name_ru
+                                                : item?.person?.name}
+                                        </h5>
+                                    </div>
                                 </div>
-                            </SwiperSlide>
-                        )
-                    )}
+                                <div className='swip__patern'></div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </section>
