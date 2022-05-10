@@ -17,15 +17,6 @@ const OurBranches = ({ data }) => {
     const [open, setOpen] = useState(false)
     const { lang } = useSelector(selectLangSlice)
     const [modalData, setModalData] = useState(null)
-    const {
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        items,
-    } = data
 
     const openModal = (item) => {
         setOpen(true)
@@ -38,25 +29,25 @@ const OurBranches = ({ data }) => {
                 <SectionTitle
                     title={
                         lang === 'uz'
-                            ? title_uz
+                            ? data?.title_uz
                             : lang === 'ru'
-                            ? title_ru
-                            : title
+                            ? data?.title_ru
+                            : data?.title
                     }
                     titleBlue=''
                     subTitle={
                         lang === 'uz'
-                            ? subtitle_uz
+                            ? data?.subtitle_uz
                             : lang === 'ru'
-                            ? subtitle_ru
-                            : subtitle
+                            ? data?.subtitle_ru
+                            : data?.subtitle
                     }
                     theme='white'
                     position='center'
                     sircleColor='green'
                 />
                 <div className='our-branches__row'>
-                    {items.map((item) => (
+                    {data?.items.map((item) => (
                         <div
                             onClick={(e) => openModal(item)}
                             key={item.id}
@@ -100,17 +91,17 @@ const OurBranches = ({ data }) => {
                             <div className='our-branches__content'>
                                 <h2 className='our-branches__title'>
                                     {lang === 'uz'
-                                        ? item.title_uz
+                                        ? item?.title_uz
                                         : lang === 'ru'
-                                        ? item.title_ru
-                                        : item.title}
+                                        ? item?.title_ru
+                                        : item?.title}
                                 </h2>
                                 <h4 className='our-branches__subtitle'>
                                     {lang === 'uz'
-                                        ? item.subtitle_uz
+                                        ? item?.subtitle_uz
                                         : lang === 'ru'
-                                        ? item.subtitle_ru
-                                        : item.subtitle}
+                                        ? item?.subtitle_ru
+                                        : item?.subtitle}
                                 </h4>
                                 <div className='our-branches__pattern'></div>
                             </div>
