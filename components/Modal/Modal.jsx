@@ -9,27 +9,6 @@ import { InstagramSvg, TelegramSvg2, CallSvg } from 'assets/icons/Icons'
 const Modal = ({ open, setOpen, data }) => {
     const { lang } = useSelector(selectLangSlice)
     const [modalShow, setModalShow] = useState(open)
-    const {
-        address,
-        address_ru,
-        address_uz,
-        button_text,
-        button_text_ru,
-        button_text_uz,
-        email,
-        image,
-        phone,
-        social,
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        work_day,
-        work_day_ru,
-        work_day_uz,
-    } = data
 
     const closeModal = () => {
         setOpen(false)
@@ -59,7 +38,7 @@ const Modal = ({ open, setOpen, data }) => {
                     </svg>
                     <div className='modal-main__left'>
                         <Image
-                            src={image ? image : notImage}
+                            src={data?.image ? data?.image : notImage}
                             alt='branch image'
                             layout='fill'
                         />
@@ -67,17 +46,17 @@ const Modal = ({ open, setOpen, data }) => {
                     <div className='modal-main__right'>
                         <h1 className='modal-main__title'>
                             {lang === 'uz'
-                                ? title_uz
+                                ? data?.title_uz
                                 : lang === 'ru'
-                                ? title_ru
-                                : title}
+                                ? data?.title_ru
+                                : data?.title}
                         </h1>
                         <h4 className='modal-main__subtitle'>
                             {lang === 'uz'
-                                ? subtitle_uz
+                                ? data?.subtitle_uz
                                 : lang === 'ru'
-                                ? subtitle_ru
-                                : subtitle}
+                                ? data?.subtitle_ru
+                                : data?.subtitle}
                         </h4>
 
                         <div className='modal-main__content'>
@@ -91,10 +70,10 @@ const Modal = ({ open, setOpen, data }) => {
                             </span>
                             <span className='modal-main__value'>
                                 {lang === 'uz'
-                                    ? address_uz
+                                    ? data?.address_uz
                                     : lang === 'ru'
-                                    ? address_ru
-                                    : address}
+                                    ? data?.address_ru
+                                    : data?.address}
                             </span>
                         </div>
                         <div className='modal-main__content'>
@@ -108,10 +87,10 @@ const Modal = ({ open, setOpen, data }) => {
                             </span>
                             <span className='modal-main__value'>
                                 {lang === 'uz'
-                                    ? phone
+                                    ? data?.phone
                                     : lang === 'ru'
-                                    ? phone
-                                    : phone}
+                                    ? data?.phone
+                                    : data?.phone}
                             </span>
                         </div>
                         <div className='modal-main__content'>
@@ -125,10 +104,10 @@ const Modal = ({ open, setOpen, data }) => {
                             </span>
                             <span className='modal-main__value'>
                                 {lang === 'uz'
-                                    ? email
+                                    ? data?.email
                                     : lang === 'ru'
-                                    ? email
-                                    : email}
+                                    ? data?.email
+                                    : data?.email}
                             </span>
                         </div>
                         <div className='modal-main__content'>
@@ -142,30 +121,30 @@ const Modal = ({ open, setOpen, data }) => {
                             </span>
                             <span className='modal-main__value'>
                                 {lang === 'uz'
-                                    ? work_day_uz
+                                    ? data?.work_day_uz
                                     : lang === 'ru'
-                                    ? work_day_ru
-                                    : work_day}
+                                    ? data?.work_day_ru
+                                    : data?.work_day}
                             </span>
                         </div>
-                        {social && (
+                        {data?.social && (
                             <div className='modal-main__social'>
                                 <a
-                                    href={social['instagram']}
+                                    href={data?.social?.instagram}
                                     className='modal-main__social-item'
                                     rel='noreferrer'
                                 >
                                     <InstagramSvg className='modal-main__social-icon' />
                                 </a>
                                 <a
-                                    href={social['telegram']}
+                                    href={data?.social?.telegram}
                                     className='modal-main__social-item'
                                     rel='noreferrer'
                                 >
                                     <TelegramSvg2 className='modal-main__social-icon' />
                                 </a>
                                 <a
-                                    href={`tel:${social['telegram']}`}
+                                    href={`tel:${data?.social?.telegram}`}
                                     className='modal-main__social-item'
                                 >
                                     <CallSvg className='modal-main__social-icon' />
