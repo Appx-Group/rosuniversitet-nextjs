@@ -4,15 +4,6 @@ import { selectLangSlice } from 'store/features/lang'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 
 const Learning = ({ data }) => {
-    const {
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-        items,
-    } = data
     const { lang } = useSelector(selectLangSlice)
     return (
         <div className='container'>
@@ -20,18 +11,18 @@ const Learning = ({ data }) => {
                 <SectionTitle
                     title={
                         lang === 'uz'
-                            ? title_uz
+                            ? data?.title_uz
                             : lang === 'ru'
-                            ? title_ru
-                            : title
+                            ? data?.title_ru
+                            : data?.title
                     }
                     titleBlue=''
                     subTitle={
                         lang === 'uz'
-                            ? subtitle_uz
+                            ? data?.subtitle_uz
                             : lang === 'ru'
-                            ? subtitle_ru
-                            : subtitle
+                            ? data?.subtitle_ru
+                            : data?.subtitle
                     }
                     theme='white'
                     position='center'
@@ -39,17 +30,17 @@ const Learning = ({ data }) => {
                 />
 
                 <ul className='learning-list'>
-                    {items.map(({ id, text, text_uz, text_ru }) => (
+                    {data?.items.map((item) => (
                         <div
                             className='text-container learning-list-row'
-                            key={id}
+                            key={item?.id}
                             dangerouslySetInnerHTML={{
                                 __html:
                                     lang === 'uz'
-                                        ? text_uz
+                                        ? item?.text_uz
                                         : lang === 'ru'
-                                        ? text_ru
-                                        : text,
+                                        ? item?.text_ru
+                                        : item?.text,
                             }}
                         />
                     ))}
