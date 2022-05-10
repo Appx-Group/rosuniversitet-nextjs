@@ -1,5 +1,4 @@
 import React from 'react'
-import useWindowSize from 'hooks/useWindowSize'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
@@ -15,8 +14,8 @@ import chinaFlag from '../../assets/images/home/china-flag.png'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Banner = ({ data }) => {
-    const size = useWindowSize()
     const { lang } = useSelector(selectLangSlice)
+    console.log(data)
     return (
         <div className='container-full'>
             <motion.section

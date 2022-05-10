@@ -16,8 +16,6 @@ const Footer = ({ footerData }) => {
     const nowYear = new Date().getFullYear()
     const { lang } = useSelector(selectLangSlice)
 
-    console.log(footerData)
-
     if (footerData === null) {
         return <div className='api-error'></div>
     }

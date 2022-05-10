@@ -28,41 +28,39 @@ const Contacts = ({ data }) => {
         setBtnShow(true)
 
         if (name.length > 0 && emailInput.length > 0 && text.length > 0) {
-            console.log('hey')
-            // toast.promise(
-            //     axios
-            //         .post('https://site.bronme.uz/dev/v1/message/create', {
-            //             name: name,
-            //             email: emailInput,
-            //             text: text,
-            //         })
-            //         .then((res) => {
-            //             console.log(res)
-            //             setName('')
-            //             setEmailInput('')
-            //             setText('')
-            //             setBtnShow(false)
-            //         }),
-            //     {
-            //         loading:
-            //             lang === 'uz'
-            //                 ? 'Yuklanmoqda...'
-            //                 : lang === 'ru'
-            //                 ? 'Загрузка...'
-            //                 : 'Loading...',
-            //         success:
-            //             lang === 'uz'
-            //                 ? "Habar muvaffaqiyatli jo'natildi"
-            //                 : lang === 'ru'
-            //                 ? 'Сообщение успешно отправлено'
-            //                 : 'Message successfully sent',
-            //         error: (err) => err.response.data.msg,
-            //     }
-            // )
+            toast.promise(
+                axios
+                    .post('https://site.bronme.uz/dev/v1/message/create', {
+                        name: name,
+                        email: emailInput,
+                        text: text,
+                    })
+                    .then((res) => {
+                        console.log(res)
+                        setName('')
+                        setEmailInput('')
+                        setText('')
+                        setBtnShow(false)
+                    }),
+                {
+                    loading:
+                        lang === 'uz'
+                            ? 'Yuklanmoqda...'
+                            : lang === 'ru'
+                            ? 'Загрузка...'
+                            : 'Loading...',
+                    success:
+                        lang === 'uz'
+                            ? "Habar muvaffaqiyatli jo'natildi"
+                            : lang === 'ru'
+                            ? 'Сообщение успешно отправлено'
+                            : 'Message successfully sent',
+                    error: (err) => err.response.data.msg,
+                }
+            )
         }
     }
 
-    console.log(data)
     return (
         <div className='container'>
             <div className='contacts'>
