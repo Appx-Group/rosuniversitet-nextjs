@@ -28,32 +28,37 @@ const Contacts = ({ data }) => {
         setBtnShow(true)
 
         if (name.length > 0 && emailInput.length > 0 && text.length > 0) {
-            toast.promise(
-                axios
-                    .post('https://site.bronme.uz/dev/v1/message/create')
-                    .then((res) => {
-                        console.log(res)
-                        setName('')
-                        setEmailInput('')
-                        setText('')
-                        setBtnShow(false)
-                    }),
-                {
-                    loading:
-                        lang === 'uz'
-                            ? 'Yuklanmoqda...'
-                            : lang === 'ru'
-                            ? 'Загрузка...'
-                            : 'Loading...',
-                    success:
-                        lang === 'uz'
-                            ? "Habar muvaffaqiyatli jo'natildi"
-                            : lang === 'ru'
-                            ? 'Сообщение успешно отправлено'
-                            : 'Message successfully sent',
-                    error: (err) => err.response.data.msg,
-                }
-            )
+            console.log('hey')
+            // toast.promise(
+            //     axios
+            //         .post('https://site.bronme.uz/dev/v1/message/create', {
+            //             name: name,
+            //             email: emailInput,
+            //             text: text,
+            //         })
+            //         .then((res) => {
+            //             console.log(res)
+            //             setName('')
+            //             setEmailInput('')
+            //             setText('')
+            //             setBtnShow(false)
+            //         }),
+            //     {
+            //         loading:
+            //             lang === 'uz'
+            //                 ? 'Yuklanmoqda...'
+            //                 : lang === 'ru'
+            //                 ? 'Загрузка...'
+            //                 : 'Loading...',
+            //         success:
+            //             lang === 'uz'
+            //                 ? "Habar muvaffaqiyatli jo'natildi"
+            //                 : lang === 'ru'
+            //                 ? 'Сообщение успешно отправлено'
+            //                 : 'Message successfully sent',
+            //         error: (err) => err.response.data.msg,
+            //     }
+            // )
         }
     }
 
@@ -158,10 +163,19 @@ const Contacts = ({ data }) => {
                                     </h2>
                                     <p className='contacts-up__detail-desc'>
                                         {data?.phone?.ru_title}{' '}
-                                        {data?.phone?.ru_number}
+                                        <span>
+                                            {data?.phone?.ru_number_first}{' '}
+                                            <br />{' '}
+                                            {data?.phone?.ru_number_second}
+                                        </span>
                                     </p>
                                     <p className='contacts-up__detail-desc'>
                                         {data?.phone?.uz_title}{' '}
+                                        <span>
+                                            {data?.phone?.uz_number_first}{' '}
+                                            <br />{' '}
+                                            {data?.phone?.uz_number_second}
+                                        </span>
                                         {data?.phone?.uz_number}
                                     </p>
                                 </div>

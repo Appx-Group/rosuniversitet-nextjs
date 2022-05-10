@@ -44,9 +44,9 @@
     z-index: -1;
 }
 
-.flag-russia {
-    top: 26%;
-    right: 7%;
+.flag-wrapper:nth-child(1) {
+    top: 27%;
+    right: 10%;
 
     @include mobile {
         top: 75%;
@@ -54,9 +54,9 @@
     }
 }
 
-.flag-america {
-    top: 25%;
-    left: 45%;
+.flag-wrapper:nth-child(2) {
+    top: 27%;
+    left: 40%;
 
     @include mobile {
         top: 55%;
@@ -64,7 +64,7 @@
     }
 }
 
-.flag-turkey {
+.flag-wrapper:nth-child(3) {
     top: 15%;
     left: 48%;
 
@@ -74,7 +74,7 @@
     }
 }
 
-.flag-china {
+.flag-wrapper:nth-child(4) {
     top: 15%;
     right: 15%;
 
@@ -84,7 +84,7 @@
     }
 }
 
-.flag-five {
+.flag-wrapper:nth-child(5) {
     top: 40%;
     right: 15%;
 
@@ -94,7 +94,7 @@
     }
 }
 
-.flag-six {
+.flag-wrapper:nth-child(6) {
     top: 50%;
     right: 4%;
 
@@ -104,7 +104,7 @@
     }
 }
 
-.flag-seven {
+.flag-wrapper:nth-child(7) {
     top: 40%;
     left: 45%;
 
@@ -114,16 +114,16 @@
     }
 }
 
-.flag-eight {
-    top: 70%;
-    right: 25%;
+.flag-wrapper:nth-child(8) {
+    top: 18%;
+    left: 25%;
 
     @include mobile {
         top: 65%;
         left: 3%;
     }
 }
-.flag-nine {
+.flag-wrapper:nth-child(9) {
     top: 67%;
     right: 10%;
 
@@ -132,9 +132,9 @@
         left: 3%;
     }
 }
-.flag-ten {
-    top: 90%;
-    right: 10%;
+.flag-wrapper:nth-child(10) {
+    top: 30%;
+    left: 6%;
 
     @include mobile {
         top: 65%;

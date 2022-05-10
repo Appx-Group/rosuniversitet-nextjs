@@ -32,7 +32,7 @@ const Principles = ({ data }) => {
                 />
                 <div className='cart-wrap'>
                     {data?.items.map((item) => (
-                        <div key={id} className='cart-about-principles'>
+                        <div key={item.id} className='cart-about-principles'>
                             <div className='cart-about-principles__img'>
                                 <Image
                                     src={item?.image ? item?.image : notImage}
