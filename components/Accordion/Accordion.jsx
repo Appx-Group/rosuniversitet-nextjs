@@ -5,27 +5,17 @@ const Accordion = ({ data }) => {
     return (
         <div className='accordion'>
             <div className='accordion__row'>
-                {data?.map(
-                    ({
-                        id,
-                        title,
-                        title_uz,
-                        title_ru,
-                        description,
-                        description_uz,
-                        description_ru,
-                    }) => (
-                        <AccordionItem
-                            key={id}
-                            title={title}
-                            title_uz={title_uz}
-                            title_ru={title_ru}
-                            description={description}
-                            description_uz={description_uz}
-                            description_ru={description_ru}
-                        />
-                    )
-                )}
+                {data?.map((item) => (
+                    <AccordionItem
+                        key={item?.id}
+                        title={item?.title}
+                        title_uz={item?.title_uz}
+                        title_ru={item?.title_ru}
+                        description={item?.description}
+                        description_uz={item?.description_uz}
+                        description_ru={item?.description_ru}
+                    />
+                ))}
             </div>
         </div>
     )
