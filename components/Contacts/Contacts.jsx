@@ -17,11 +17,11 @@ import {
 } from '../../assets/icons/Icons'
 
 const Contacts = ({ data }) => {
+    const { lang } = useSelector(selectLangSlice)
     const [name, setName] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
-    const { lang } = useSelector(selectLangSlice)
 
     const onSubmit = (e) => {
         e.preventDefault()
