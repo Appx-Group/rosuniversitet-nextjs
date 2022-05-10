@@ -20,18 +20,6 @@ const Footer = ({ footerData }) => {
         return <div className='api-error'></div>
     }
 
-    const {
-        contact,
-        popular,
-        social,
-        subtitle,
-        subtitle_ru,
-        subtitle_uz,
-        title,
-        title_ru,
-        title_uz,
-    } = footerData
-
     return (
         <footer className='footer'>
             <div className='container'>
@@ -39,22 +27,22 @@ const Footer = ({ footerData }) => {
                     <div className='footer__item'>
                         <h1 className='footer__logo'>
                             {lang === 'uz'
-                                ? title_uz
+                                ? footerData?.title_uz
                                 : lang === 'ru'
-                                ? title_ru
-                                : title}
+                                ? footerData?.title_ru
+                                : footerData?.title}
                         </h1>
                         <p className='footer__desc'>
                             {lang === 'uz'
-                                ? subtitle_uz
+                                ? footerData?.subtitle_uz
                                 : lang === 'ru'
-                                ? subtitle_ru
-                                : subtitle}
+                                ? footerData?.subtitle_ru
+                                : footerData?.subtitle}
                         </p>
                         <div className='footer__social'>
                             <a
                                 className='footer__social-item'
-                                href={social?.instagram}
+                                href={footerData?.social?.instagram}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -62,7 +50,7 @@ const Footer = ({ footerData }) => {
                             </a>
                             <a
                                 className='footer__social-item'
-                                href={social?.telegram}
+                                href={footerData?.social?.telegram}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -70,7 +58,7 @@ const Footer = ({ footerData }) => {
                             </a>
                             <a
                                 className='footer__social-item'
-                                href={`mailto:${social?.email}`}
+                                href={`mailto:${footerData?.social?.email}`}
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
@@ -90,17 +78,17 @@ const Footer = ({ footerData }) => {
                             <LocationSvg className='footer__item-info-icon' />
                             <span className='footer__item-info-text'>
                                 {lang === 'uz'
-                                    ? contact?.address_uz
+                                    ? footerData?.contact?.address_uz
                                     : lang === 'ru'
-                                    ? contact?.address_ru
-                                    : contact?.address}
+                                    ? footerData?.contact?.address_ru
+                                    : footerData?.contact?.address}
                             </span>
                         </div>
                         <div className='footer__item-info'>
                             <TelegramSvg2 className='footer__item-info-icon' />
 
                             <span className='footer__item-info-text'>
-                                {social?.email}
+                                {footerData?.social?.email}
                             </span>
                         </div>
                         <div className='footer__item-info'>
@@ -108,12 +96,12 @@ const Footer = ({ footerData }) => {
 
                             <div className='footer__item-info-text'>
                                 <h3>
-                                    {contact?.phone_title_ru}{' '}
-                                    {contact?.phone_ru}
+                                    {footerData?.contact?.phone_title_ru}{' '}
+                                    {footerData?.contact?.phone_ru}
                                 </h3>
                                 <h3>
-                                    {contact?.phone_title_uz}{' '}
-                                    {contact?.phone_uz}
+                                    {footerData?.contact?.phone_title_uz}{' '}
+                                    {footerData?.contact?.phone_uz}
                                 </h3>
                             </div>
                         </div>
@@ -127,22 +115,22 @@ const Footer = ({ footerData }) => {
                                 ? 'ПОПУЛЯРНЫЕ СТРАНИЦЫ'
                                 : 'POPULAR PAGES'}
                         </h3>
-                        {popular.map(
-                            ({ id, title, title_ru, title_uz, slug }) => (
-                                <Link
-                                    key={id}
-                                    href={`/${slug === '/' ? '' : slug}`}
-                                >
-                                    <a className='footer__item-link'>
-                                        {lang === 'uz'
-                                            ? title_uz
-                                            : lang === 'ru'
-                                            ? title_ru
-                                            : title}
-                                    </a>
-                                </Link>
-                            )
-                        )}
+                        {footerData?.popular.map((item) => (
+                            <Link
+                                key={item?.id}
+                                href={`/${
+                                    item?.slug === '/' ? '' : item?.slug
+                                }`}
+                            >
+                                <a className='footer__item-link'>
+                                    {lang === 'uz'
+                                        ? item?.title_uz
+                                        : lang === 'ru'
+                                        ? item?.title_ru
+                                        : item?.title}
+                                </a>
+                            </Link>
+                        ))}
                     </div>
                     <div className='footer__item'>
                         <h3 className='footer__title'>
