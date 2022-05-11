@@ -10,6 +10,7 @@ import { SectionTitle } from '../SectionTitle/SectionTitle'
 import 'react-vertical-timeline-component/style.min.css'
 
 import { SircleSvg } from 'assets/icons/Icons'
+import GlobalForm from '../GlobalForm/GlobalForm'
 
 const Cooperation = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
@@ -85,6 +86,7 @@ const Cooperation = ({ data }) => {
                     ))}
                 </VerticalTimeline>
             </div>
+            <GlobalForm />
         </div>
     )
 }

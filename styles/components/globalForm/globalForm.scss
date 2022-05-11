@@ -1,23 +1,48 @@
 .global-form {
-    margin: 60px 0;
-
-    @include mobile {
-        margin: 40px 0;
-    }
-
     &__item {
         @include flex(center, space-between);
         margin: 20px 0;
         min-height: 50px !important;
+
+        @media screen and (max-width: 756px) {
+            flex-direction: column;
+            row-gap: 20px;
+        }
     }
 
     &__left {
         width: 49%;
         height: 50px;
+
+        @media screen and (max-width: 756px) {
+            width: 100%;
+        }
     }
 
     &__right {
         width: 49%;
         height: 50px;
+
+        @media screen and (max-width: 756px) {
+            width: 100%;
+        }
     }
+}
+
+.form-wrap {
+    margin: 60px 0;
+
+    @include mobile {
+        margin: 40px 0;
+    }
+}
+.border-red {
+    border: 1px solid $red !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.border-green {
+    border: 1px solid $green !important;
+    border-radius: 8px;
+    overflow: hidden;
 }

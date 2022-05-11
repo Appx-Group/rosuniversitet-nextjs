@@ -6,6 +6,8 @@ import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { selectLangSlice } from 'store/features/lang'
 import { Toaster, toast } from 'react-hot-toast'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 import {
     UserSvg,
@@ -21,45 +23,45 @@ const Contacts = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
     const [name, setName] = useState('')
     const [emailInput, setEmailInput] = useState('')
+    const [number, setNumber] = useState('+998')
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
-    const [inputValue, setInputValue] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault()
         setBtnShow(true)
 
         if (name.length > 0 && emailInput.length > 0 && text.length > 0) {
-            toast.promise(
-                axios
-                    .post('https://site.bronme.uz/dev/v1/message/create', {
-                        name: name,
-                        email: emailInput,
-                        text: text,
-                    })
-                    .then((res) => {
-                        console.log(res)
-                        setName('')
-                        setEmailInput('')
-                        setText('')
-                        setBtnShow(false)
-                    }),
-                {
-                    loading:
-                        lang === 'uz'
-                            ? 'Yuklanmoqda...'
-                            : lang === 'ru'
-                            ? 'Загрузка...'
-                            : 'Loading...',
-                    success:
-                        lang === 'uz'
-                            ? "Habar muvaffaqiyatli jo'natildi"
-                            : lang === 'ru'
-                            ? 'Сообщение успешно отправлено'
-                            : 'Message successfully sent',
-                    error: (err) => err.response.data.msg,
-                }
-            )
+            // toast.promise(
+            //     axios
+            //         .post('https://site.bronme.uz/dev/v1/message/create', {
+            //             name: name,
+            //             email: emailInput,
+            //             text: text,
+            //         })
+            //         .then((res) => {
+            //             console.log(res)
+            //             setName('')
+            //             setEmailInput('')
+            //             setText('')
+            //             setBtnShow(false)
+            //         }),
+            //     {
+            //         loading:
+            //             lang === 'uz'
+            //                 ? 'Yuklanmoqda...'
+            //                 : lang === 'ru'
+            //                 ? 'Загрузка...'
+            //                 : 'Loading...',
+            //         success:
+            //             lang === 'uz'
+            //                 ? "Habar muvaffaqiyatli jo'natildi"
+            //                 : lang === 'ru'
+            //                 ? 'Сообщение успешно отправлено'
+            //                 : 'Message successfully sent',
+            //         error: (err) => err.response.data.msg,
+            //     }
+            // )
         }
     }
 
@@ -257,25 +259,38 @@ const Contacts = ({ data }) => {
                                 <UserSvg className='contacts-down__icon' />
                             </div>
                             <div className='contacts-down__item'>
-                                <input
-                                    required
-                                    className={`contacts-down__input ${
+                                <PhoneInput
+                                    containerClass={` ${
                                         btnShow
-                                            ? emailInput.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
+                                            ? number.length === 0 && btnShow
+                                                ? 'border-red'
+                                                : 'border-green'
                                             : ''
                                     }`}
-                                    type='text'
+                                    country={'Uzbekistan'}
+                                    value={number}
+                                    inputClass={`contacts-down__input `}
                                     placeholder={
                                         lang === 'uz'
-                                            ? 'Number'
+                                            ? 'Telefon raqami'
                                             : lang === 'ru'
-                                            ? 'Number'
-                                            : 'Number'
+                                            ? 'Номер телефона'
+                                            : 'Phone number'
                                     }
+                                    // onChange={(phone) => console.log(phone)}
+                                    onChange={(phone) =>
+                                        setNumber(phone.trim())
+                                    }
+                                    inputStyle={{
+                                        border: '1px solid #d6d5d7',
+                                        borderRadius: '8px',
+                                        height: '50px',
+                                        width: '100%',
+                                        margin: ' 0',
+                                        fontSize: '16px',
+                                        letterSpacing: '1.3px',
+                                    }}
                                 />
-                                <CallSvg2 className='contacts-down__icon' />
                             </div>
                             <div className='contacts-down__item'>
                                 <input

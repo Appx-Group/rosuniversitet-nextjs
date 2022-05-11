@@ -83,169 +83,27 @@ const Banner = ({ data }) => {
 
                     <PatternThree />
                     <div className='pattrn-flags'>
-                        <motion.div
-                            custom={1}
-                            variants={flagAnimation}
-                            className='flag-wrapper'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={russiaFlag}
-                                        alt=''
-                                    />
+                        {data?.flags.map((element, index) => (
+                            <motion.div
+                                key={element?.id}
+                                custom={index}
+                                variants={flagAnimation}
+                                className='flag-wrapper'
+                            >
+                                <div className='flag-cart'>
+                                    <div className='flag-cart__img'>
+                                        <Image
+                                            layout='fill'
+                                            src={element?.image}
+                                            alt=''
+                                        />
+                                    </div>
+                                    <span className='flag-cart__text'>
+                                        {element?.title}
+                                    </span>
                                 </div>
-                                <span className='flag-cart__text'>Russia</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={2}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-america'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        className='flag-cart__img'
-                                        unoptimized={true}
-                                        loading='eager'
-                                        layout='fill'
-                                        src={americanFlag}
-                                        alt='flag'
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>America</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={3}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-turkey'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={turkeyFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>Turkey</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={4}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-china'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={5}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-five'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={6}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-six'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={7}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-seven'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={8}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-eight'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={9}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-nine'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            custom={10}
-                            variants={flagAnimation}
-                            className='flag-wrapper flag-ten'
-                        >
-                            <div className='flag-cart'>
-                                <div className='flag-cart__img'>
-                                    <Image
-                                        layout='fill'
-                                        src={chinaFlag}
-                                        alt=''
-                                    />
-                                </div>
-                                <span className='flag-cart__text'>China</span>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </motion.section>
