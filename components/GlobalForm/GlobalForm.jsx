@@ -37,7 +37,15 @@ const GlobalForm = () => {
         e.preventDefault()
         setBtnShow(true)
 
-        if (name.length > 0 && emailInput.length > 0 && text.length > 0) {
+        if (
+            name.length > 0 &&
+            emailInput.length > 0 &&
+            text.length > 0 &&
+            tel.length > 0 &&
+            university.length > 0 &&
+            city.length > 0 &&
+            palce > 0
+        ) {
             // toast.promise(
             //     axios
             //         .post('https://site.bronme.uz/dev/v1/message/create', {

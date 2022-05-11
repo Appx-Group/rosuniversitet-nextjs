@@ -47,10 +47,6 @@ const Branch = ({ data }) => {
                             className='branches__item'
                         >
                             <div className='branches__img'>
-                                <div className='branches__date'>
-                                    <h2 className='branches__num'>24</h2>
-                                    <h4 className='branches__month'>СЕН</h4>
-                                </div>
                                 <Image
                                     className='branches__img-bg'
                                     src={item?.image ? item?.image : notImage}

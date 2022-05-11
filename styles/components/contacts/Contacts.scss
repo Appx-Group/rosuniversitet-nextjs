@@ -136,6 +136,10 @@
                 transition: all 0.3s ease;
                 @include flex(flex-start, flex-start);
                 column-gap: 10px;
+
+                span {
+                    margin-left: auto;
+                }
             }
         }
 

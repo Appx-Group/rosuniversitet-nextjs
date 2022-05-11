@@ -7,10 +7,6 @@ import { motion } from 'framer-motion'
 import PatternThree from '../PattertThree/PatternThree'
 
 import bgPattern from '../../assets/images/home/banner-pattern.png'
-import russiaFlag from '../../assets/images/home/russia-flag.jpg'
-import americanFlag from '../../assets/images/home/american-flag.jpg'
-import turkeyFlag from '../../assets/images/home/turkey-flag.png'
-import chinaFlag from '../../assets/images/home/china-flag.png'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Banner = ({ data }) => {
@@ -120,7 +116,7 @@ const textAnimation = {
     visible: (custom) => ({
         y: 0,
         opacity: 1,
-        transition: { delay: Number(custom * 0.4) + Number(2) },
+        transition: { delay: Number(custom * 0.3) + Number(2) },
     }),
 }
 

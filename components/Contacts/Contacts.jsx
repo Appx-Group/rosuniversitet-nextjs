@@ -31,7 +31,12 @@ const Contacts = ({ data }) => {
         e.preventDefault()
         setBtnShow(true)
 
-        if (name.length > 0 && emailInput.length > 0 && text.length > 0) {
+        if (
+            name.length > 0 &&
+            emailInput.length > 0 &&
+            text.length > 0 &&
+            number.length > 0
+        ) {
             // toast.promise(
             //     axios
             //         .post('https://site.bronme.uz/dev/v1/message/create', {
