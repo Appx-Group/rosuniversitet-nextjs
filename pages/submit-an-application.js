@@ -2,7 +2,6 @@ import React from 'react'
 import Contacts from '@/components/Contacts/Contacts'
 
 const contacts = ({ data, success }) => {
-    console.log(data, success)
     return <div>{<Contacts data={data} />}</div>
 }
 

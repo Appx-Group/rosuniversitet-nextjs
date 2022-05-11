@@ -15,7 +15,6 @@ import { notImage } from 'assets/data/PartnersDara/ImagesData'
 
 const Banner = ({ data }) => {
     const { lang } = useSelector(selectLangSlice)
-    console.log(data)
     return (
         <div className='container-full'>
             <motion.section

@@ -43,7 +43,6 @@ const allComponents = {
 export default function Home({ data }) {
     const details = data?.details
     const bannerData = data?.banner
-    console.log(data)
     return (
         <div className='wrapper'>
             <Head>
