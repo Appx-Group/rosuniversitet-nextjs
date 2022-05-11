@@ -78,16 +78,16 @@ const GlobalForm = () => {
                         lang === 'uz'
                             ? 'XABAR QOLDIRISH'
                             : lang === 'ru'
-                            ? 'ОСТАВЬТЕ СООБЩЕНИЕ'
+                            ? 'Feedback form'
                             : 'LEAVE A MESSAGE'
                     }
                     titleBlue={lang === 'uz' ? '' : lang === '' ? '' : ''}
                     subTitle={
                         lang === 'uz'
-                            ? "Biz bilan bog'laning"
+                            ? 'Fikr-mulohaza shakli'
                             : lang === 'ru'
-                            ? 'Напишите нам'
-                            : 'Write to us'
+                            ? 'Форма обратной связи'
+                            : 'Feedback form'
                     }
                     theme='white'
                     position='center'
