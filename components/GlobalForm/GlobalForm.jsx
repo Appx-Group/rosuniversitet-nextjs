@@ -33,6 +33,8 @@ const GlobalForm = () => {
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
 
+    console.log(tel)
+
     const onSubmit = (e) => {
         e.preventDefault()
         setBtnShow(true)
