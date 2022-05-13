@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
-import Image from 'next/image'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import { selectLangSlice } from 'store/features/lang'
-import { Toaster, toast } from 'react-hot-toast'
-import { notImage } from 'assets/data/PartnersDara/ImagesData'
 import PhoneInput from 'react-phone-input-2'
+import { Toaster, toast } from 'react-hot-toast'
 import 'react-phone-input-2/lib/style.css'
+import clsx from 'clsx'
 
 import {
     UserSvg,
     EmailSvg,
     EditSvg,
-    LocationSvg,
-    TelegramSvg,
-    CallSvg,
-    CallSvg2,
     UniversitesSvg,
     CitySvg,
     PositionStudentSvg,
@@ -35,13 +30,12 @@ const GlobalForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        setBtnShow(true)
 
         if (
             name.length > 0 &&
             emailInput.length > 0 &&
             text.length > 0 &&
-            tel.length > 0 &&
+            tel.length >= 12 &&
             university.length > 0 &&
             city.length > 0 &&
             place.length > 0
@@ -90,6 +84,18 @@ const GlobalForm = () => {
     return (
         <div className='form-wrap'>
             <div className='container '>
+                <Toaster
+                    toastOptions={{
+                        className: '',
+                        style: {
+                            zIndex: '44',
+                            top: '200px',
+                        },
+                    }}
+                    containerStyle={{
+                        top: 20,
+                    }}
+                />
                 <SectionTitle
                     title={
                         lang === 'uz'
@@ -109,24 +115,24 @@ const GlobalForm = () => {
                     theme='white'
                     position='center'
                 />
-                <form className='global-form'>
+                <form className='global-form' onSubmit={onSubmit}>
                     <div className='global-form__item'>
                         <div className='global-form__left'>
                             {' '}
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            name.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            name.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='text'
-                                    onChange={(e) =>
-                                        setName(e.target.value.trim())
-                                    }
+                                    onChange={(e) => setName(e.target.value)}
                                     value={name}
                                     placeholder={
                                         lang === 'uz'
@@ -144,16 +150,18 @@ const GlobalForm = () => {
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            university.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            university.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='text'
                                     onChange={(e) =>
-                                        setUniversity(e.target.value.trim())
+                                        setUniversity(e.target.value)
                                     }
                                     value={university}
                                     placeholder={
@@ -174,17 +182,17 @@ const GlobalForm = () => {
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            city.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            city.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='text'
-                                    onChange={(e) =>
-                                        setCity(e.target.value.trim())
-                                    }
+                                    onChange={(e) => setCity(e.target.value)}
                                     value={city}
                                     placeholder={
                                         lang === 'uz'
@@ -202,17 +210,17 @@ const GlobalForm = () => {
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            place.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            place.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='text'
-                                    onChange={(e) =>
-                                        setPlace(e.target.value.trim())
-                                    }
+                                    onChange={(e) => setPlace(e.target.value)}
                                     value={place}
                                     placeholder={
                                         lang === 'uz'
@@ -229,13 +237,12 @@ const GlobalForm = () => {
                     <div className='global-form__item'>
                         <div className='global-form__left'>
                             <PhoneInput
-                                containerClass={` ${
-                                    btnShow
-                                        ? name.length === 0 && btnShow
-                                            ? 'border-red'
-                                            : 'border-green'
-                                        : ''
-                                }`}
+                                containerClass={clsx(
+                                    btnShow &&
+                                        tel.length >= 12 &&
+                                        'border-green',
+                                    btnShow && tel.length < 12 && 'border-red '
+                                )}
                                 country={'Uzbekistan'}
                                 value={tel}
                                 inputClass={`contacts-down__input `}
@@ -246,7 +253,7 @@ const GlobalForm = () => {
                                         ? 'Номер телефона'
                                         : 'Phone number'
                                 }
-                                onChange={(phone) => setTel(phone.trim())}
+                                onChange={(phone) => setTel(phone)}
                                 inputStyle={{
                                     border: '1px solid #d6d5d7',
                                     borderRadius: '8px',
@@ -263,16 +270,18 @@ const GlobalForm = () => {
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            emailInput.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            emailInput.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='email'
                                     onChange={(e) =>
-                                        setEmailInput(e.target.value.trim())
+                                        setEmailInput(e.target.value)
                                     }
                                     value={emailInput}
                                     placeholder={
@@ -292,15 +301,13 @@ const GlobalForm = () => {
                             required
                             id='story'
                             name='story'
-                            onChange={(e) => setText(e.target.value.trim())}
+                            onChange={(e) => setText(e.target.value)}
                             value={text}
-                            className={`contacts-down__input ${
-                                btnShow
-                                    ? text.length === 0 && btnShow
-                                        ? 'red'
-                                        : 'green'
-                                    : ''
-                            }`}
+                            className={clsx(
+                                'contacts-down__input ',
+                                btnShow && text.length > 0 && 'border-green',
+                                btnShow && text.length === 0 && 'border-red '
+                            )}
                             rows='5'
                             cols='33'
                             placeholder={
@@ -314,7 +321,11 @@ const GlobalForm = () => {
                         <EditSvg className='contacts-down__icon contacts-down__icon_textarea' />
                     </div>
 
-                    <button onSubmit={onSubmit} className='contacts-down__btn'>
+                    <button
+                        type='submit'
+                        onClick={(e) => setBtnShow(true)}
+                        className='contacts-down__btn'
+                    >
                         {lang === 'uz'
                             ? "Bog'lanish"
                             : lang === 'ru'

@@ -8,6 +8,7 @@ import { Toaster, toast } from 'react-hot-toast'
 import { notImage } from 'assets/data/PartnersDara/ImagesData'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import clsx from 'clsx'
 
 import {
     UserSvg,
@@ -29,13 +30,12 @@ const Contacts = ({ data }) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        setBtnShow(true)
 
         if (
             name.length > 0 &&
             emailInput.length > 0 &&
             text.length > 0 &&
-            number.length > 0
+            number.length >= 12
         ) {
             toast.promise(
                 axios
@@ -240,21 +240,24 @@ const Contacts = ({ data }) => {
                                 : data?.form_description}
                         </p>
 
-                        <form className='contacts-down__form'>
+                        <form
+                            className='contacts-down__form'
+                            onSubmit={onSubmit}
+                        >
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? name.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            name.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            name.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='text'
-                                    onChange={(e) =>
-                                        setName(e.target.value.trim())
-                                    }
+                                    onChange={(e) => setName(e.target.value)}
                                     value={name}
                                     placeholder={
                                         lang === 'uz'
@@ -268,13 +271,14 @@ const Contacts = ({ data }) => {
                             </div>
                             <div className='contacts-down__item'>
                                 <PhoneInput
-                                    containerClass={` ${
-                                        btnShow
-                                            ? number.length === 0 && btnShow
-                                                ? 'border-red'
-                                                : 'border-green'
-                                            : ''
-                                    }`}
+                                    containerClass={clsx(
+                                        btnShow &&
+                                            number.length >= 12 &&
+                                            'border-green',
+                                        btnShow &&
+                                            number.length < 12 &&
+                                            'border-red '
+                                    )}
                                     country={'Uzbekistan'}
                                     value={number}
                                     inputClass={`contacts-down__input `}
@@ -285,10 +289,7 @@ const Contacts = ({ data }) => {
                                             ? 'Номер телефона'
                                             : 'Phone number'
                                     }
-                                    // onChange={(phone) => console.log(phone)}
-                                    onChange={(phone) =>
-                                        setNumber(phone.trim())
-                                    }
+                                    onChange={(phone) => setNumber(phone)}
                                     inputStyle={{
                                         border: '1px solid #d6d5d7',
                                         borderRadius: '8px',
@@ -303,17 +304,19 @@ const Contacts = ({ data }) => {
                             <div className='contacts-down__item'>
                                 <input
                                     required
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? emailInput.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            emailInput.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            emailInput.length === 0 &&
+                                            'border-red '
+                                    )}
                                     type='email'
                                     value={emailInput}
                                     onChange={(e) =>
-                                        setEmailInput(e.target.value.trim())
+                                        setEmailInput(e.target.value)
                                     }
                                     placeholder={
                                         lang === 'uz'
@@ -330,17 +333,17 @@ const Contacts = ({ data }) => {
                                     required
                                     id='story'
                                     name='story'
-                                    onChange={(e) =>
-                                        setText(e.target.value.trim())
-                                    }
+                                    onChange={(e) => setText(e.target.value)}
                                     value={text}
-                                    className={`contacts-down__input ${
-                                        btnShow
-                                            ? text.length === 0 && btnShow
-                                                ? 'red'
-                                                : 'green'
-                                            : ''
-                                    }`}
+                                    className={clsx(
+                                        'contacts-down__input ',
+                                        btnShow &&
+                                            text.length > 0 &&
+                                            'border-green',
+                                        btnShow &&
+                                            text.length === 0 &&
+                                            'border-red '
+                                    )}
                                     rows='5'
                                     cols='33'
                                     placeholder={
@@ -354,7 +357,7 @@ const Contacts = ({ data }) => {
                                 <EditSvg className='contacts-down__icon contacts-down__icon_textarea' />
                             </div>
                             <button
-                                onSubmit={onSubmit}
+                                onClick={(e) => setBtnShow(true)}
                                 className='contacts-down__btn'
                             >
                                 {lang === 'uz'
