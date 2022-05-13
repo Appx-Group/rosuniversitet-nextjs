@@ -40,6 +40,7 @@ const Contacts = ({ data }) => {
             toast.promise(
                 axios
                     .post('https://site.bronme.uz/dev/v1/message/create', {
+                        type: 'message',
                         name: name,
                         phone: number,
                         email: emailInput,
@@ -50,6 +51,7 @@ const Contacts = ({ data }) => {
                         setName('')
                         setEmailInput('')
                         setText('')
+                        setNumber('+998')
                         setBtnShow(false)
                     }),
                 {
@@ -65,7 +67,7 @@ const Contacts = ({ data }) => {
                             : lang === 'ru'
                             ? 'Сообщение успешно отправлено'
                             : 'Message successfully sent',
-                    error: (err) => err.response.data.msg,
+                    error: (err) => console.log(error),
                 }
             )
         }
@@ -352,7 +354,7 @@ const Contacts = ({ data }) => {
                                 <EditSvg className='contacts-down__icon contacts-down__icon_textarea' />
                             </div>
                             <button
-                                onClick={onSubmit}
+                                onSubmit={onSubmit}
                                 className='contacts-down__btn'
                             >
                                 {lang === 'uz'

@@ -33,8 +33,6 @@ const GlobalForm = () => {
     const [text, setText] = useState('')
     const [btnShow, setBtnShow] = useState(false)
 
-    console.log(tel)
-
     const onSubmit = (e) => {
         e.preventDefault()
         setBtnShow(true)
@@ -46,38 +44,47 @@ const GlobalForm = () => {
             tel.length > 0 &&
             university.length > 0 &&
             city.length > 0 &&
-            palce > 0
+            place.length > 0
         ) {
-            // toast.promise(
-            //     axios
-            //         .post('https://site.bronme.uz/dev/v1/message/create', {
-            //             name: name,
-            //             email: emailInput,
-            //             text: text,
-            //         })
-            //         .then((res) => {
-            //             console.log(res)
-            //             setName('')
-            //             setEmailInput('')
-            //             setText('')
-            //             setBtnShow(false)
-            //         }),
-            //     {
-            //         loading:
-            //             lang === 'uz'
-            //                 ? 'Yuklanmoqda...'
-            //                 : lang === 'ru'
-            //                 ? 'Загрузка...'
-            //                 : 'Loading...',
-            //         success:
-            //             lang === 'uz'
-            //                 ? "Habar muvaffaqiyatli jo'natildi"
-            //                 : lang === 'ru'
-            //                 ? 'Сообщение успешно отправлено'
-            //                 : 'Message successfully sent',
-            //         error: (err) => err.response.data.msg,
-            //     }
-            // )
+            toast.promise(
+                axios
+                    .post('https://site.bronme.uz/dev/v1/message/create', {
+                        type: 'feedback',
+                        name: name,
+                        city: city,
+                        email: emailInput,
+                        phone: tel,
+                        text: text,
+                        organization: university,
+                        position: place,
+                    })
+                    .then((res) => {
+                        console.log(res)
+                        setName('')
+                        setCity('')
+                        setTel('')
+                        setEmailInput('')
+                        setText('')
+                        setPlace('')
+                        setUniversity('')
+                        setBtnShow(false)
+                    }),
+                {
+                    loading:
+                        lang === 'uz'
+                            ? 'Yuklanmoqda...'
+                            : lang === 'ru'
+                            ? 'Загрузка...'
+                            : 'Loading...',
+                    success:
+                        lang === 'uz'
+                            ? "Habar muvaffaqiyatli jo'natildi"
+                            : lang === 'ru'
+                            ? 'Сообщение успешно отправлено'
+                            : 'Message successfully sent',
+                    error: (err) => console.log(error),
+                }
+            )
         }
     }
     return (
@@ -307,7 +314,7 @@ const GlobalForm = () => {
                         <EditSvg className='contacts-down__icon contacts-down__icon_textarea' />
                     </div>
 
-                    <button onClick={onSubmit} className='contacts-down__btn'>
+                    <button onSubmit={onSubmit} className='contacts-down__btn'>
                         {lang === 'uz'
                             ? "Bog'lanish"
                             : lang === 'ru'
