@@ -270,7 +270,7 @@ const GlobalForm = () => {
                                                 : 'green'
                                             : ''
                                     }`}
-                                    type='text'
+                                    type='email'
                                     onChange={(e) =>
                                         setEmailInput(e.target.value.trim())
                                     }
