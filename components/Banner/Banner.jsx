@@ -16,7 +16,7 @@ const Banner = ({ data }) => {
             <motion.section
                 className='banner'
                 initial='hidden'
-                viewport={{ amount: 0.2, once: true }}
+                viewport={{ amount: 0.15, once: true }}
                 whileInView={'visible'}
             >
                 <div className='container'>
@@ -68,7 +68,7 @@ const Banner = ({ data }) => {
                                 <a className='default__btn'>
                                     {lang === 'uz'
                                         ? data?.link?.title_uz
-                                        : data?.lang === 'ru'
+                                        : lang === 'ru'
                                         ? data?.link?.title_ru
                                         : data?.link?.title}
                                 </a>
@@ -116,7 +116,7 @@ const textAnimation = {
     visible: (custom) => ({
         y: 0,
         opacity: 1,
-        transition: { delay: Number(custom * 0.3) + Number(2) },
+        transition: { delay: Number(custom * 0.2) + Number(2) },
     }),
 }
 
@@ -128,7 +128,7 @@ const flagAnimation = {
     visible: (custom) => ({
         opacity: 1,
         scale: 1,
-        transition: { delay: Number(custom * 0.4) + Number(3) },
+        transition: { delay: Number(custom * 0.2) + Number(3) },
     }),
 }
 
