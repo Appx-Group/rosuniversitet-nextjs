@@ -11,14 +11,13 @@ const NotFound = () => {
     const { lang } = useSelector(selectLangSlice)
     const router = useRouter()
 
-    const pushHome = () => {
-        setTimeout(() => {
-            // navigate('/')
-            router.push('/')
-        }, 10 * 1000)
-    }
-
     useEffect(() => {
+        const pushHome = () => {
+            setTimeout(() => {
+                // navigate('/')
+                router.push('/')
+            }, 10 * 1000)
+        }
         pushHome()
     }, [])
     return (

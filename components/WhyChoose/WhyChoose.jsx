@@ -42,6 +42,7 @@ const WhyChoosse = ({ data }) => {
                                         }
                                         width={30}
                                         height={30}
+                                        alt='why choose image'
                                     />
                                 </div>
                             </div>

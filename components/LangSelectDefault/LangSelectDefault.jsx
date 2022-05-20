@@ -36,7 +36,7 @@ const LangSelectDefault = () => {
                 changeActiveShow(JSON.parse(localStorage.getItem('activeShow')))
             )
         }
-    }, [])
+    }, [dispatch])
     return (
         <>
             {activeShow && (
