@@ -19,7 +19,7 @@ const NotFound = () => {
             }, 10 * 1000)
         }
         pushHome()
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className='container'>
             <section className='not-found'>
