@@ -69,7 +69,7 @@ export default function Home({ data }) {
     )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const res = await fetch(`https://site.bronme.uz/dev/v1/home`)
     const { data } = await res.json()
 
