@@ -51,13 +51,16 @@ body {
 //  to top btn
 
 .styles_scroll-to-top__2A70v {
-    bottom: 90px !important;
+    bottom: 100px !important;
     background-color: $sectionTitleBlueColor !important;
     z-index: 100 !important;
     transition: all 0.3s ease;
 
     &:hover {
         background-color: $mainColor !important;
+    }
+    @include mobile {
+        bottom: 90px !important;
     }
 }
 

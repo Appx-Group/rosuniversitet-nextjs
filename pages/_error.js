@@ -1,15 +1,11 @@
-import React from 'react'
-
-class E extends React.Component {
-    static getInitialProps({ res, err }) {
-        const status = res ? res.statusCode : err ? err.statusCode : null
-        return { status }
-    }
-
-    render() {
-        const { status } = this.props
-        return <h1>{status}</h1>
-    }
+const errorData = {
+    404: 'Not found ',
 }
 
-export default E
+const ErrorPage = ({ statusCode }) => (
+    <div className='error'>
+        <span className='error__title'>Error {statusCode}</span>
+    </div>
+)
+
+export default ErrorPage

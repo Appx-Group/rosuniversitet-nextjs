@@ -18,6 +18,7 @@ import Universities from '@/components/Universites/Universites'
 import Principles from '@/components/Principles/Principles'
 import Contacts from '@/components/Contacts/Contacts'
 import { domain } from 'utils/urls'
+import Error from './_error'
 
 const allComponents = {
     CardFirst: AboutUsHome,
@@ -39,7 +40,8 @@ const allComponents = {
     richtext: Learning,
 }
 
-export default function Pages({ data, slug }) {
+export default function Pages({ data, slug, statusCode }) {
+    if (statusCode) return <Error statusCode={statusCode} />
     const details = data?.details
     return (
         <div className='wrapper'>
@@ -65,12 +67,13 @@ export default function Pages({ data, slug }) {
     )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
     const slug = context.params.slug
     if (slug === 'submit-an-application') {
         return
     }
     const res = await fetch(`https://site.bronme.uz/dev/v1/menu/slug/${slug}`)
+    const statusCode = res.status > 200 ? res.status : false
     const { data } = await res.json()
 
     if (!data) {
@@ -81,8 +84,68 @@ export const getServerSideProps = async (context) => {
 
     return {
         props: {
-            data: data ?? null,
-            slug: slug ?? null,
+            data: data,
+            slug: slug,
+            statusCode,
         },
+        revalidate: 10,
+    }
+}
+
+export const getStaticPaths = async () => {
+    const res = await fetch('https://site.bronme.uz/dev/v1/menu')
+    console.log(res)
+    const { data } = await res.json()
+
+    function someCostom(array, cb) {
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) return true
+        }
+
+        return false
+    }
+
+    const some = (arr, element) => {
+        return someCostom(arr, (item) => item.slug === element)
+
+        // return arr.some(item => { item.slug == element  })
+    }
+
+    const sortSlug = (arr) => {
+        const newArray = []
+
+        for (let i = 0; i < arr.length; i++) {
+            const element = arr[i]
+
+            if (!some(newArray, element.slug)) {
+                newArray.push({ slug: element.slug })
+            }
+
+            if (element.children) {
+                for (let i = 0; i < element.children.length; i++) {
+                    if (!some(newArray, element.children[i].slug)) {
+                        newArray.push({ slug: element.children[i].slug })
+                    }
+                }
+            }
+        }
+        return newArray.filter(
+            (item) => item.slug !== '/' && item.slug !== 'submit-an-application'
+        )
+    }
+
+    const allPath = sortSlug(data)
+
+    const paths = allPath.map((curElem) => {
+        return {
+            params: {
+                slug: curElem.slug.toString(),
+            },
+        }
+    })
+
+    return {
+        paths,
+        fallback: false,
     }
 }

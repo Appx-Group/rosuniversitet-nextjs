@@ -23,6 +23,8 @@ const PatternThree = () => {
                             duration: 6,
                             ease: 'easeIn',
                         }}
+                        width={70}
+                        height={70}
                     />
                 </div>
             </div>
@@ -32,6 +34,8 @@ const PatternThree = () => {
                         className='pattern-three__img'
                         src={PatternImg}
                         alt='pattern three'
+                        width={70}
+                        height={70}
                     />
                 </div>
                 <div className='pattern-three_right'>
@@ -45,6 +49,8 @@ const PatternThree = () => {
                             duration: 6,
                             ease: 'easeIn',
                         }}
+                        width={70}
+                        height={70}
                     />
                 </div>
             </div>

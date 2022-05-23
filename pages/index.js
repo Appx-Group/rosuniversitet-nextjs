@@ -19,6 +19,7 @@ import Banner from '@/components/Banner/Banner'
 import Principles from '@/components/Principles/Principles'
 import LangSelectDefault from '@/components/LangSelectDefault/LangSelectDefault'
 import { domain } from 'utils/urls'
+import Error from './_error'
 
 const allComponents = {
     CardFirst: AboutUsHome,
@@ -40,7 +41,8 @@ const allComponents = {
     richtext: Learning,
 }
 
-export default function Home({ data }) {
+export default function Home({ data, statusCode }) {
+    if (statusCode) return <Error statusCode={statusCode} />
     const details = data?.details
     const bannerData = data?.banner
     return (
@@ -68,14 +70,19 @@ export default function Home({ data }) {
         </div>
     )
 }
+// getServerSideProps
+// getStaticProps
 
 export const getStaticProps = async () => {
     const res = await fetch(`https://site.bronme.uz/dev/v1/home`)
+    const statusCode = res.status > 200 ? res.status : false
     const { data } = await res.json()
 
     return {
         props: {
-            data: data ?? null,
+            data: data,
+            statusCode: statusCode,
         },
+        revalidate: 10,
     }
 }
