@@ -17,7 +17,12 @@
     }
 
     &__img {
-        width: 85px;
+        width: 60px;
+        object-fit: cover;
+
+        @media screen and (max-width: 1200px) {
+            width: 40px;
+        }
 
         @include mobile {
             width: 40px;
@@ -25,6 +30,7 @@
     }
 
     &_right {
+        position: relative;
         animation-name: patternChange;
         animation-duration: 3s;
         animation-timing-function: linear;
@@ -33,6 +39,7 @@
     }
 
     &_up {
+        position: relative;
         animation-name: patternChangeUp;
         animation-duration: 3s;
         animation-timing-function: linear;

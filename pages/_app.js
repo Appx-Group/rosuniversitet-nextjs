@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Provider } from 'react-redux'
+
 import { store } from '../store'
-import Router from 'next/router'
 import Header from '@/components/Header/Header'
 import Loading from '@/components/Loading/Loading'
 import Footer from '@/components/Footer/Footer'
@@ -9,42 +9,24 @@ import ScrollToTop from 'react-scroll-to-top'
 import { UpSvg } from 'assets/icons/Icons'
 import '@/styles/main.scss'
 import '../styles/components/loading/loading.css'
+import Error from './_error'
 
-function MyApp({ Component, pageProps, data, footerData }) {
-    const [loading, setLoading] = useState(false)
-    useEffect(() => {
-        const start = () => {
-            setLoading(true)
-        }
-        const end = () => {
-            setLoading(false)
-        }
-        Router.events.on('routeChangeStart', start)
-        Router.events.on('routeChangeComplete', end)
-        Router.events.on('routeChangeError', end)
-        return () => {
-            Router.events.off('routeChangeStart', start)
-            Router.events.off('routeChangeComplete', end)
-            Router.events.off('routeChangeError', end)
-        }
-    }, [])
+function MyApp({ Component, pageProps, data, footerData, statusCode }) {
+    if (statusCode) return <Error statusCode={statusCode} />
+
     return (
         <Provider store={store}>
-            {loading ? (
-                <Loading />
-            ) : (
-                <div>
-                    <Header menuData={data} />
-                    <ScrollToTop
-                        smooth
-                        top={20}
-                        color='#fff'
-                        component={<UpSvg />}
-                    />
-                    <Component {...pageProps} />
-                    <Footer footerData={footerData} />
-                </div>
-            )}
+            <div>
+                <Header menuData={data} />
+                <ScrollToTop
+                    smooth
+                    top={20}
+                    color='#fff'
+                    component={<UpSvg />}
+                />
+                <Component {...pageProps} />
+                <Footer footerData={footerData} />
+            </div>
         </Provider>
     )
 }
@@ -56,5 +38,8 @@ MyApp.getInitialProps = async (ctx) => {
     const { data } = await res.json()
     const resFooter = await fetch('https://site.bronme.uz/dev/v1/footer')
     const footerData = await resFooter.json()
-    return { data: data, footerData: footerData['data']['footer'] ?? null }
+    const statusCode =
+        res.status > 200 || resFooter.status > 200 ? res.status : false
+
+    return { data: data, footerData: footerData['data']['footer'], statusCode }
 }

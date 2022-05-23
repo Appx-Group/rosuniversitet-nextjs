@@ -1,0 +1,12 @@
+.error {
+    min-height: 100vh;
+    @include flex;
+
+    &__title {
+        @include font(normal, 700, 32, 22, 120%);
+        font-family: $fontFamilytTwo;
+        letter-spacing: 1.2px;
+        color: $txtBlack;
+        margin: 20px 0;
+    }
+}
