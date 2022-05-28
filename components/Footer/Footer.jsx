@@ -140,24 +140,6 @@ const Footer = ({ footerData }) => {
                             </Link>
                         ))}
                     </div>
-                    <div className='footer__item'>
-                        <h3 className='footer__title'>
-                            {lang === 'uz'
-                                ? 'Yangi sahifa'
-                                : lang === 'ru'
-                                ? 'Новая страница'
-                                : 'New page'}
-                        </h3>
-                        <Link href='/'>
-                            <a className='footer__item-link'>
-                                {lang === 'uz'
-                                    ? 'Bosh sahifa'
-                                    : lang === 'ru'
-                                    ? 'Дом'
-                                    : 'Home'}
-                            </a>
-                        </Link>
-                    </div>
                 </div>
                 <div className='footer__line'></div>
                 <div className='footer-bottom'>
