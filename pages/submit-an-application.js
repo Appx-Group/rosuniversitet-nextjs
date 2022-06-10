@@ -8,7 +8,7 @@ const contacts = ({ data, success }) => {
 export default contacts
 
 export const getServerSideProps = async () => {
-    const res = await fetch(`https://site.bronme.uz/dev/v1/contact`)
+    const res = await fetch(`http://site.bronme.uz/dev/v1/contact`)
     const { data, success } = await res.json()
 
     return {

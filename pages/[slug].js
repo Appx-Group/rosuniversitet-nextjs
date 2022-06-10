@@ -72,7 +72,7 @@ export const getStaticProps = async (context) => {
     if (slug === 'submit-an-application') {
         return
     }
-    const res = await fetch(`https://site.bronme.uz/dev/v1/menu/slug/${slug}`)
+    const res = await fetch(`http://site.bronme.uz/dev/v1/menu/slug/${slug}`)
     const statusCode = res.status > 200 ? res.status : false
     const { data } = await res.json()
 
@@ -93,7 +93,7 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-    const res = await fetch('https://site.bronme.uz/dev/v1/menu')
+    const res = await fetch('http://site.bronme.uz/dev/v1/menu')
     console.log(res)
     const { data } = await res.json()
 
