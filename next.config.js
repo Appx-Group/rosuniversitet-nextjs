@@ -2,7 +2,10 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['site.bronme.uz', 'bronme.uz', 'rosunviversitet.vercel.app'],
+        domains: [
+            'rosunviversitet.vercel.app',
+            'media-app.timeweb-gate.appx.uz',
+        ],
     },
 }
 

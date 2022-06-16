@@ -1,0 +1,11 @@
+{
+  "/404": "pages/404.js",
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/api/data/menu": "pages/api/data/menu.js",
+  "/api/menu": "pages/api/menu.js",
+  "/[slug]": "pages/[slug].js",
+  "/": "pages/index.js",
+  "/submit-an-application": "pages/submit-an-application.js",
+  "/_document": "pages/_document.js"
+}
