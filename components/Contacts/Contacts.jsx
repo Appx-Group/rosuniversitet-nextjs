@@ -39,13 +39,16 @@ const Contacts = ({ data }) => {
         ) {
             toast.promise(
                 axios
-                    .post('https://site.bronme.uz/dev/v1/message/create', {
-                        type: 'message',
-                        name: name,
-                        phone: number,
-                        email: emailInput,
-                        text: text,
-                    })
+                    .post(
+                        'https://api.rosuniversitet.com/dev/v1/message/create',
+                        {
+                            type: 'message',
+                            name: name,
+                            phone: number,
+                            email: emailInput,
+                            text: text,
+                        }
+                    )
                     .then((res) => {
                         console.log(res)
                         setName('')
@@ -67,7 +70,7 @@ const Contacts = ({ data }) => {
                             : lang === 'ru'
                             ? 'Сообщение успешно отправлено'
                             : 'Message successfully sent',
-                    error: (err) => console.log(error),
+                    error: (error) => console.log(error),
                 }
             )
         }

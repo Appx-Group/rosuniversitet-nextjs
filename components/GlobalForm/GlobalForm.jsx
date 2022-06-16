@@ -42,16 +42,19 @@ const GlobalForm = () => {
         ) {
             toast.promise(
                 axios
-                    .post('https://site.bronme.uz/dev/v1/message/create', {
-                        type: 'feedback',
-                        name: name,
-                        city: city,
-                        email: emailInput,
-                        phone: tel,
-                        text: text,
-                        organization: university,
-                        position: place,
-                    })
+                    .post(
+                        'https://api.rosuniversitet.com/dev/v1/message/create',
+                        {
+                            type: 'feedback',
+                            name: name,
+                            city: city,
+                            email: emailInput,
+                            phone: tel,
+                            text: text,
+                            organization: university,
+                            position: place,
+                        }
+                    )
                     .then((res) => {
                         console.log(res)
                         setName('')
