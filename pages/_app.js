@@ -34,9 +34,9 @@ function MyApp({ Component, pageProps, data, footerData, statusCode }) {
 export default MyApp
 
 MyApp.getInitialProps = async (ctx) => {
-    const res = await fetch('http://site.bronme.uz/dev/v1/menu')
+    const res = await fetch('https://api.rosuniversitet.com/dev/v1/menu')
     const { data } = await res.json()
-    const resFooter = await fetch('http://site.bronme.uz/dev/v1/footer')
+    const resFooter = await fetch('https://api.rosuniversitet.com/dev/v1/footer')
     const footerData = await resFooter.json()
     const statusCode =
         res.status > 200 || resFooter.status > 200 ? res.status : false
